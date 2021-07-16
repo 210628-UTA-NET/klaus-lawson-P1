@@ -1,0 +1,5 @@
+{
+    "ConnectionStrings":{
+        "Reference2DB" : "Server=tcp:klaus-server.database.windows.net,1433;Initial Catalog=AppStoreDb;Persist Security Info=False;User ID=klauslawsondjecky@gmail.com@klaus-server;Password=K12241997e.;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+    }
+}
