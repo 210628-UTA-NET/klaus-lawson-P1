@@ -1,0 +1,12 @@
+C:\Users\klaus\Documents\Revature\SA P1\SAModels\bin\Debug\net5.0\SAModels.deps.json
+C:\Users\klaus\Documents\Revature\SA P1\SAModels\bin\Debug\net5.0\SAModels.dll
+C:\Users\klaus\Documents\Revature\SA P1\SAModels\bin\Debug\net5.0\ref\SAModels.dll
+C:\Users\klaus\Documents\Revature\SA P1\SAModels\bin\Debug\net5.0\SAModels.pdb
+C:\Users\klaus\Documents\Revature\SA P1\SAModels\obj\Debug\net5.0\SAModels.csproj.AssemblyReference.cache
+C:\Users\klaus\Documents\Revature\SA P1\SAModels\obj\Debug\net5.0\SAModels.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\klaus\Documents\Revature\SA P1\SAModels\obj\Debug\net5.0\SAModels.AssemblyInfoInputs.cache
+C:\Users\klaus\Documents\Revature\SA P1\SAModels\obj\Debug\net5.0\SAModels.AssemblyInfo.cs
+C:\Users\klaus\Documents\Revature\SA P1\SAModels\obj\Debug\net5.0\SAModels.csproj.CoreCompileInputs.cache
+C:\Users\klaus\Documents\Revature\SA P1\SAModels\obj\Debug\net5.0\SAModels.dll
+C:\Users\klaus\Documents\Revature\SA P1\SAModels\obj\Debug\net5.0\ref\SAModels.dll
+C:\Users\klaus\Documents\Revature\SA P1\SAModels\obj\Debug\net5.0\SAModels.pdb
