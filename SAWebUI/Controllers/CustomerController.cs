@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using SABL;
 using SAModels;
 using SAWebUI.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SAWebUI.Controllers
 {
@@ -16,10 +17,11 @@ namespace SAWebUI.Controllers
         {
             _storeBL = p_storeBL;
         }
+        
         public IActionResult Index()
         {
             return View(
-                _storeBL.GetAllCustomer()
+                _storeBL.GetAllCustomers()
                 .Select(cust => new CustomerVM(cust))
                 .ToList()
                 );
@@ -37,10 +39,12 @@ namespace SAWebUI.Controllers
                 {
                     _storeBL.AddCustomer(new Customer
                     {
-                        Name = p_customerVM.Name,
-                        Address = p_customerVM.Address,
-                        Email = p_customerVM.Email,
-                        Phone = p_customerVM.Phone
+                        CustomerFirstName = p_customerVM.CustomerFirstName,
+                        CustomerLastName = p_customerVM.CustomerLastName,
+                        CustomerEmail = p_customerVM.CustomerEmail,
+                        CustomerPhone = p_customerVM.CustomerPhone,
+                        CustomerPassword = p_customerVM.CustomerPassword,
+                        CustomerAddressId = p_customerVM.CustomerAddressId
                     });
                     return RedirectToAction(nameof(Index));
                 }

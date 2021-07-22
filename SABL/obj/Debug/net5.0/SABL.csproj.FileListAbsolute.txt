@@ -15,3 +15,20 @@ C:\Users\klaus\Documents\Revature\SA P1\SABL\obj\Debug\net5.0\SABL.csproj.CopyCo
 C:\Users\klaus\Documents\Revature\SA P1\SABL\obj\Debug\net5.0\SABL.dll
 C:\Users\klaus\Documents\Revature\SA P1\SABL\obj\Debug\net5.0\ref\SABL.dll
 C:\Users\klaus\Documents\Revature\SA P1\SABL\obj\Debug\net5.0\SABL.pdb
+C:\Users\klaus\Documents\Revature\SAP1\SABL\bin\Debug\net5.0\SABL.deps.json
+C:\Users\klaus\Documents\Revature\SAP1\SABL\bin\Debug\net5.0\SABL.dll
+C:\Users\klaus\Documents\Revature\SAP1\SABL\bin\Debug\net5.0\ref\SABL.dll
+C:\Users\klaus\Documents\Revature\SAP1\SABL\bin\Debug\net5.0\SABL.pdb
+C:\Users\klaus\Documents\Revature\SAP1\SABL\bin\Debug\net5.0\SADL.dll
+C:\Users\klaus\Documents\Revature\SAP1\SABL\bin\Debug\net5.0\SAModels.dll
+C:\Users\klaus\Documents\Revature\SAP1\SABL\bin\Debug\net5.0\SADL.pdb
+C:\Users\klaus\Documents\Revature\SAP1\SABL\bin\Debug\net5.0\SAModels.pdb
+C:\Users\klaus\Documents\Revature\SAP1\SABL\obj\Debug\net5.0\SABL.csprojAssemblyReference.cache
+C:\Users\klaus\Documents\Revature\SAP1\SABL\obj\Debug\net5.0\SABL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\klaus\Documents\Revature\SAP1\SABL\obj\Debug\net5.0\SABL.AssemblyInfoInputs.cache
+C:\Users\klaus\Documents\Revature\SAP1\SABL\obj\Debug\net5.0\SABL.AssemblyInfo.cs
+C:\Users\klaus\Documents\Revature\SAP1\SABL\obj\Debug\net5.0\SABL.csproj.CoreCompileInputs.cache
+C:\Users\klaus\Documents\Revature\SAP1\SABL\obj\Debug\net5.0\SABL.csproj.CopyComplete
+C:\Users\klaus\Documents\Revature\SAP1\SABL\obj\Debug\net5.0\SABL.dll
+C:\Users\klaus\Documents\Revature\SAP1\SABL\obj\Debug\net5.0\ref\SABL.dll
+C:\Users\klaus\Documents\Revature\SAP1\SABL\obj\Debug\net5.0\SABL.pdb

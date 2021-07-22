@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\klaus\\Documents\\Revature\\SA P1\\SADL\\SADL.csproj": {}
+    "C:\\Users\\klaus\\Documents\\Revature\\SAP1\\SADL\\SADL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\klaus\\Documents\\Revature\\SA P1\\SADL\\SADL.csproj": {
+    "C:\\Users\\klaus\\Documents\\Revature\\SAP1\\SADL\\SADL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\klaus\\Documents\\Revature\\SA P1\\SADL\\SADL.csproj",
+        "projectUniqueName": "C:\\Users\\klaus\\Documents\\Revature\\SAP1\\SADL\\SADL.csproj",
         "projectName": "SADL",
-        "projectPath": "C:\\Users\\klaus\\Documents\\Revature\\SA P1\\SADL\\SADL.csproj",
+        "projectPath": "C:\\Users\\klaus\\Documents\\Revature\\SAP1\\SADL\\SADL.csproj",
         "packagesPath": "C:\\Users\\klaus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\klaus\\Documents\\Revature\\SA P1\\SADL\\obj\\",
+        "outputPath": "C:\\Users\\klaus\\Documents\\Revature\\SAP1\\SADL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -34,8 +34,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\klaus\\Documents\\Revature\\SA P1\\SAModels\\SAModels.csproj": {
-                "projectPath": "C:\\Users\\klaus\\Documents\\Revature\\SA P1\\SAModels\\SAModels.csproj"
+              "C:\\Users\\klaus\\Documents\\Revature\\SAP1\\SAModels\\SAModels.csproj": {
+                "projectPath": "C:\\Users\\klaus\\Documents\\Revature\\SAP1\\SAModels\\SAModels.csproj"
               }
             }
           }
@@ -90,14 +90,14 @@
         }
       }
     },
-    "C:\\Users\\klaus\\Documents\\Revature\\SA P1\\SAModels\\SAModels.csproj": {
+    "C:\\Users\\klaus\\Documents\\Revature\\SAP1\\SAModels\\SAModels.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\klaus\\Documents\\Revature\\SA P1\\SAModels\\SAModels.csproj",
+        "projectUniqueName": "C:\\Users\\klaus\\Documents\\Revature\\SAP1\\SAModels\\SAModels.csproj",
         "projectName": "SAModels",
-        "projectPath": "C:\\Users\\klaus\\Documents\\Revature\\SA P1\\SAModels\\SAModels.csproj",
+        "projectPath": "C:\\Users\\klaus\\Documents\\Revature\\SAP1\\SAModels\\SAModels.csproj",
         "packagesPath": "C:\\Users\\klaus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\klaus\\Documents\\Revature\\SA P1\\SAModels\\obj\\",
+        "outputPath": "C:\\Users\\klaus\\Documents\\Revature\\SAP1\\SAModels\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

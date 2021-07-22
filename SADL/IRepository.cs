@@ -8,24 +8,24 @@ namespace SADL
     {
         // Customer Operations
         public Customer AddCustomer(Customer p_customer);
-        public Customer DeleteCustomer(int p_id);
-        public Customer UpdateCustomer(int p_id);
-        public Customer FindCustomer(string p_searchKey);
-        public List<Customer> GetAllCustomer();
+        public Customer FindCustomerByKey(string p_searchKey);
+        public Customer UpdateCustomerById(int p_id);
+        public bool DeleteCustomerById(int p_id);
+        public bool DeleteCustomer(Customer p_cust);
+        public List<Customer> GetAllCustomers();
 
-        /*// StoreFront Operations
-        public StoreFront FindStoreFront(string p_searchKey);
-        public StoreFront FindStoreFrontByID(int p_stfID);
-        public List<Product> GetStoreFrontProducts(string p_storeName);
+        //Store Operations
+        public List<Store> GetAllStores();
+        public Store GetStoreById(int p_Id);
+        public List<Store> GetAllStoresWhithAddress();
+
+        //Address Operation       
+        public Address GetAddressById(int p_Id);
+        public List<Address> GetAllAddress();
 
         //Product Operations
-        public Product FindProduct(int p_id);
-        public bool UpdateProduct(int p_id, Product p_Product);
-        public bool AddProduct(Product p_product);
-        public List<StoreFront> GetAllStoreFront();
-        public bool AddNewOrder(Order p_orders);
-        public int GetLastOrderId();
-        public bool AddLineItems(LineItem p_lineItems);
-        public List<Order> GetOrderOfCustomer(int p_customerID);*/
+        public List<Product> GetAllProducts();
+        public List<Product> GetProductsByStoreId(int p_storeId);
+        public Product GetProductById(int p_productId);
     }
 }

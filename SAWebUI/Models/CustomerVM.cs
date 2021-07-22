@@ -2,8 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace SAWebUI.Models
 {
@@ -13,22 +12,24 @@ namespace SAWebUI.Models
         {
 
         }
-        public CustomerVM(Customer p_customer )
+        public CustomerVM(Customer p_customer)
         {
             Id = p_customer.Id;
-            Name = p_customer.Name;
-            Address = p_customer.Address;
-            Email = p_customer.Email;
-            Phone = p_customer.Phone;
+            CustomerFirstName = p_customer.CustomerFirstName;
+            CustomerLastName = p_customer.CustomerLastName;
+            CustomerEmail = p_customer.CustomerEmail;
+            CustomerPhone = p_customer.CustomerPhone;
+            CustomerAddressId = p_customer.CustomerAddressId;
+            CustomerPassword = p_customer.CustomerPassword;
         }
+
         public int Id { get; set; }
-        [Required]
-        public string Name { get; set; }
-        [Required]
-        public string Address { get; set; }
-        [Required]
-        public string Email { get; set; }
-        [Required]
-        public string Phone { get; set; }
+        public string CustomerFirstName { get; set; }
+        public string CustomerLastName { get; set; }
+        public string CustomerEmail { get; set; }
+        public string CustomerPhone { get; set; }
+        public string CustomerPassword { get; set; }
+        public int CustomerAddressId { get; set; }
+
     }
 }
