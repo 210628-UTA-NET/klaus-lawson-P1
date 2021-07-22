@@ -18,8 +18,8 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: Restore dependencies
-      run: dotnet restore SAP1
+      run: dotnet restore /klaus-lawson-P1/
     - name: Build
       run: dotnet build --configuration Release--no-restore
     - name: Test
-      run: dotnet test SAP1/--no-build --verbosity normal
+      run: dotnet test /klaus-lawson-P1/--no-build --verbosity normal
