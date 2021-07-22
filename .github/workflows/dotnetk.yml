@@ -33,7 +33,7 @@ jobs:
         # The name of the SonarQube project
         sonarProjectName: klaus-lawson-P1
         sonarOrganization: 210628-uta-net
-        dotnetBuildArguments: /
+        dotnetBuildArguments: .\
         dotnetDisableTests: true
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
