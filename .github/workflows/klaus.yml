@@ -28,7 +28,7 @@ jobs:
       # uses: highbyte/sonarscan-dotnet@90025f8a91fb480278dbd6cf740ee9d862f7794c
       uses: highbyte/sonarscan-dotnet@v2.1.1-beta
       with:
-        # The key of the SonarQube project
+        # The key of the SonarQube projects
         sonarProjectKey: 210628-UTA-NET_klaus-lawson-P1
         # The name of the SonarQube project
         sonarProjectName: AppStore
