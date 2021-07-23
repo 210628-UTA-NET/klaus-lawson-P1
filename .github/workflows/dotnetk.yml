@@ -31,7 +31,7 @@ jobs:
         # The key of the SonarQube project
         sonarProjectKey: 210628-UTA-NET_klaus-lawson-P1
         # The name of the SonarQube project
-        sonarProjectName: klaus-lawson-P1
+        sonarProjectName: AppStore
         sonarOrganization: 210628-uta-net
         dotnetBuildArguments: .\
         dotnetDisableTests: true
@@ -44,5 +44,5 @@ jobs:
       uses: azure/webapps-deploy@v2
       with: 
         app-name: StoreAppConsole # Replace with your app name
-        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE  }} # Define secret variable in repository settings as per action documentation
+        publish-profile: ${{ secret.AZURE_WEBAPP_PUBLISH_PROFILE }} # Define secret variable in repository settings as per action documentation
         package: ./publish
