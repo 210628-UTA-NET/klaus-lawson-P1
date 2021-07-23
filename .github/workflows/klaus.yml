@@ -33,7 +33,6 @@ jobs:
         # The name of the SonarQube project
         sonarProjectName: AppStore
         sonarOrganization: 210628-uta-net
-        dotnetBuildArguments: .\
         dotnetDisableTests: true
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
