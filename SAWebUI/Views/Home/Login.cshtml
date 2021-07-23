@@ -7,19 +7,53 @@
 }
 <h1>Login</h1>
 @if (!string.IsNullOrEmpty(error))
-            {
-                <h2 class="alert-danger" style="padding:20px;"> @error</h2>
-            }
-<form action="/login?ReturnUrl=@System.Net.WebUtility.UrlEncode(returnUrl)" method="post">
+{
+    <h2 class="alert-danger" style="padding:20px;"> @error</h2>
+}
+@*<form action="/login?ReturnUrl=@System.Net.WebUtility.UrlEncode(returnUrl)" method="post">
     <div class="row">
         <div class="col">
-            <input type="email" name ="email"class="form-control" placeholder="email">
+            <input type="email" name="email" class="form-control" placeholder="email">
         </div>
         <div class="col">
             <input type="password" name="password" class="form-control" placeholder="Password">
         </div>
     </div>
     <div>
-        <input type="submit" value="login"/>
+        <input type="submit" value="login" />
     </div>
+</form>*@
+<form action="/login?ReturnUrl=@System.Net.WebUtility.UrlEncode(returnUrl)" method="post" style="width:40%; position:center;">
+
+<div class="form-outline mb-4">
+    <input type="email" name="email" id="form1Example1" class="form-control" />
+    <label class="form-label" name="email" for="form1Example1">Email address</label>
+</div>
+
+<div class="form-outline mb-4">
+    <input type="password" name="password" id="form1Example2" class="form-control" />
+    <label class="form-label" name="password" for="form1Example2">Password</label>
+</div>
+
+<div class="row mb-4">
+    <div class="col d-flex justify-content-center">
+
+<div class="form-check">
+        <input class="form-check-input"
+               type="checkbox"
+               value=""
+               id="form1Example3"
+               checked />
+        <label class="form-check-label" for="form1Example3"> Remember me </label>
+    </div>
+</div>
+
+<div class="col">
+
+<a href="#!">Forgot password?</a>
+    </div>
+</div>
+
+<button type="submit"  value="login" class="btn btn-primary btn-block">Sign in</button>
+<input type="submit" value="login" />
 </form>

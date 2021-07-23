@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SABL;
 using SAModels;
 using SAWebUI.Models;
@@ -9,72 +10,83 @@ using System.Threading.Tasks;
 
 namespace SAWebUI.Controllers
 {
+    [Authorize]
     public class OurStoreController : Controller
     {
         private IStoreAppBL _storeBL;
-        private List<ProductVM> _myCart;
         public OurStoreController(IStoreAppBL p_storeBL)
         {
             _storeBL = p_storeBL;
-            _myCart = new List<ProductVM>();
         }
+
+        // Get All Store
         public IActionResult OurStoreIndex()
         {
             List<Store> lstores = _storeBL.GetAllStoresWhithAddress();
             List<StoreVM> listStoreVM = new List<StoreVM>();
-            /*var listStoreAddr = _storeBL.GetAllStores().Join(_storeBL.GetAllAddress(),
+            /*List<Store> lstores  = _storeBL.GetAllStores().Join(_storeBL.GetAllAddress(),
                                 store => store.StoreAddressId,
                                 addr => addr.Id,
                                 (store, addr) => new { Store = store, Address = addr }).ToList();*/
-            /*foreach (var sa in listStoreAddr)
-            {
-                StoreVM storeVM = new StoreVM();
-                storeVM.Id = sa.Store.Id;
-                storeVM.StoreName = sa.Store.StoreName;
-                storeVM.StorePhone = sa.Store.StorePhone;
-                storeVM.StoreAddressId = sa.Store.StoreAddressId;
-                storeVM.Street = sa.Address.Street;
-                storeVM.City = sa.Address.City;
-                storeVM.State = sa.Address.State;
-                storeVM.Country = sa.Address.Country;
-                listStoreVM.Add(storeVM);
-            }
-            return View(listStoreVM);*/
             foreach (var sa in lstores)
             {
-                StoreVM storeVM = new StoreVM();
-                storeVM.Id = sa.Id;
-                storeVM.StoreName = sa.StoreName;
-                storeVM.StorePhone = sa.StorePhone;
-                storeVM.StoreAddressId = sa.StoreAddressId;
-                storeVM.Street = sa.StoreAddress.Street;
-                storeVM.City = sa.StoreAddress.City;
-                storeVM.State = sa.StoreAddress.State;
-                storeVM.Country = sa.StoreAddress.Country;
+                StoreVM storeVM = new StoreVM(sa);
                 listStoreVM.Add(storeVM);
             }
             return View(listStoreVM);
-
         }
 
-        public IActionResult ViewStore(int p_id)
+        //Get all Products from a store
+        public IActionResult ViewStoreProducts(int p_Storeid)
         {
-            /*Store st = _storeBL.GetStoreById(p_id);
-            Address ad = _storeBL.GetAddressById(st.StoreAddressId);
-            StoreVM storeVM = new StoreVM(st,ad);*/
-            ViewBag.StoreName = _storeBL.GetStoreById(p_id).StoreName;
+            ViewBag.StoreName = _storeBL.GetStoreById(p_Storeid).StoreName;
             List<ProductVM> storeVMProducts = new List<ProductVM>();
-            List<Product> storeProducts =  _storeBL.GetProductsByStoreId(p_id);
+            List<Product> storeProducts =  _storeBL.GetProductsByStoreId(p_Storeid);
             foreach(Product p in storeProducts)
             {
                 storeVMProducts.Add(new ProductVM(p));
             }
             return View(storeVMProducts);
         }
-        public IActionResult MyCart(int p_productId)
+        //Get all product from all store
+        public IActionResult ViewAllProducts()
         {
-            var cart = new List<LineItemVM>();
-            return View(_myCart);
+            
+            List<ProductVM> ListProductsVM = new List<ProductVM>();
+            List<Product> AllProducts = _storeBL.GetAllProducts();
+            foreach (Product p in AllProducts)
+            {
+                ListProductsVM.Add(new ProductVM(p));
+            }
+            return View(ListProductsVM);
+        }
+
+
+        public IActionResult AddtoCart(int p_productId)
+        {
+            Product p = _storeBL.GetProductById(p_productId);
+            
+            int stId = p.StoreId;
+            if (ViewData["Cart"] == null)
+            {
+                List<LineItemVM> cart = new List<LineItemVM>();
+                LineItem li = new LineItem();
+                li.ProductId = p_productId;
+                li.QuantityToBuy = 1;
+                cart.Add(new LineItemVM(li));
+                ViewData["Cart"] = cart;
+            }
+            else
+            {
+                List<LineItemVM> cart = (List<LineItemVM>)ViewBag.Cart;
+                LineItem li = new LineItem();
+                li.ProductId = p_productId;
+                li.QuantityToBuy = 1;
+                cart.Add(new LineItemVM(li));
+                ViewData["Cart"] = cart;
+            }
+
+            return RedirectToAction("ViewStore", new { p_id = stId});
         }
     }
 }

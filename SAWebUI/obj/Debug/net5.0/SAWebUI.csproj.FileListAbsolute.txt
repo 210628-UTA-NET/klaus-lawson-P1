@@ -877,7 +877,6 @@ C:\Users\klaus\Documents\Revature\SAP1\SAWebUI\obj\Debug\net5.0\SAWebUI.RazorCor
 C:\Users\klaus\Documents\Revature\SAP1\SAWebUI\obj\Debug\net5.0\Razor\Views\Customer\Create.cshtml.g.cs
 C:\Users\klaus\Documents\Revature\SAP1\SAWebUI\obj\Debug\net5.0\Razor\Views\Customer\Index.cshtml.g.cs
 C:\Users\klaus\Documents\Revature\SAP1\SAWebUI\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\klaus\Documents\Revature\SAP1\SAWebUI\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\klaus\Documents\Revature\SAP1\SAWebUI\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\klaus\Documents\Revature\SAP1\SAWebUI\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\klaus\Documents\Revature\SAP1\SAWebUI\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
@@ -892,8 +891,8 @@ C:\Users\klaus\Documents\Revature\SAP1\SAWebUI\obj\Debug\net5.0\ref\SAWebUI.dll
 C:\Users\klaus\Documents\Revature\SAP1\SAWebUI\obj\Debug\net5.0\SAWebUI.pdb
 C:\Users\klaus\Documents\Revature\SAP1\SAWebUI\obj\Debug\net5.0\SAWebUI.genruntimeconfig.cache
 C:\Users\klaus\Documents\Revature\SAP1\SAWebUI\obj\Debug\net5.0\Razor\Views\Home\Login.cshtml.g.cs
-C:\Users\klaus\Documents\Revature\SAP1\SAWebUI\obj\Debug\net5.0\Razor\Views\Home\Secured.cshtml.g.cs
 C:\Users\klaus\Documents\Revature\SAP1\SAWebUI\obj\Debug\net5.0\Razor\Views\OurStore\OurStoreIndex.cshtml.g.cs
-C:\Users\klaus\Documents\Revature\SAP1\SAWebUI\obj\Debug\net5.0\Razor\Views\OurStore\ViewStore.cshtml.g.cs
 C:\Users\klaus\Documents\Revature\SAP1\SAWebUI\obj\Debug\net5.0\Razor\Views\OurStore\MyCart.cshtml.g.cs
 C:\Users\klaus\Documents\Revature\SAP1\SAWebUI\bin\Debug\net5.0\libman.json
+C:\Users\klaus\Documents\Revature\SAP1\SAWebUI\obj\Debug\net5.0\Razor\Views\OurStore\ViewAllProducts.cshtml.g.cs
+C:\Users\klaus\Documents\Revature\SAP1\SAWebUI\obj\Debug\net5.0\Razor\Views\OurStore\ViewStoreProducts.cshtml.g.cs

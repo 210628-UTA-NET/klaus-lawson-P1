@@ -6,32 +6,26 @@
         <thead>
             <tr>
                 <th scope="col">Product Name</th>
-                <th scope="col">unit Price</th>
+                <th scope="col">unit Prices</th>
                 <th scope="col">Quantity in Stock</th>
                 <th scope="col">Product Description</th>
-                <th scope="col">Operation</th>
             </tr>
         </thead>
         <tbody>
-            
             @foreach (ProductVM item in Model)
             {
-                
+
                 <tr>
                     <td>@Html.DisplayFor(modelItem => item.ProductName)</td>
                     <td>@Html.DisplayFor(modelItem => item.ProductUnitPrice)</td>
                     <td>@Html.DisplayFor(modelItem => item.ProductAvailableQty)</td>
                     <td>@Html.DisplayFor(modelItem => item.ProductDescription)</td>
-                    <td>
-                        @*<button onclick="AddToCart()">Add to cart</button>
-        @Html.ActionLink("View My Cart", "MyCart", "OurStore", new { @style = "color:white", @class = "btn btn-second" })*@
-                        <a asp-action="MyCart"><i class="fa fa-cart-plus"></i></a>
-
-
-                    </td>
                 </tr>
-            }
+            }            
         </tbody>
-    </table>
+        <tfoot>
+            <a asp-action="OurStoreIndex" class="btn btn-danger">Back</a>
+        </tfoot>
+    </table>    
 </div>
 

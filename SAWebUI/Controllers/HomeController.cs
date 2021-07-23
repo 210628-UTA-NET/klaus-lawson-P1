@@ -27,16 +27,6 @@ namespace SAWebUI.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-        [Authorize]
-        public IActionResult Secured()
-        {
-            return View();
-        }
-
         [HttpGet("login")]
         public IActionResult Login(string returnUrl)
         {
@@ -45,10 +35,10 @@ namespace SAWebUI.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> ValidateAsync(string email, string password,string returnUrl)
+        public async Task<IActionResult> ValidateAsync(string email, string password, string returnUrl)
         {
             ViewData["ReturnUrl"] = returnUrl;
-            if(email=="klaus@gmail.com" && password == "123456")
+            if (email == "klaus@gmail.com" && password == "123456")
             {
                 var claims = new List<Claim>();
                 claims.Add(new Claim("email", email));
@@ -57,10 +47,18 @@ namespace SAWebUI.Controllers
                 var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                 var claimsprincipal = new ClaimsPrincipal(claimsIdentity);
                 await HttpContext.SignInAsync(claimsprincipal);
-                return Redirect(returnUrl);
+                if (!string.IsNullOrEmpty(returnUrl))
+                {
+                    return Redirect(returnUrl);
+                }
+                else
+                {
+                    return Redirect("/");
+                }
+                
             }
             TempData["Error"] = "Error. Email or Password is invalid";
-                return View("Login");            
+            return View("Login");
         }
 
         [Authorize]

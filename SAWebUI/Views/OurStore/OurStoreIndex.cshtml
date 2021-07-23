@@ -17,19 +17,26 @@
         <tbody>
             @foreach (var item in Model)
             {
-                string address = $"{ item.Street} , { item.City} , {item.State} , {item.Country}";
-                    
-                
-            <tr>
-                <td>@Html.DisplayFor(modelItem => item.Id)</td>
-                <td>@Html.DisplayFor(modelItem => item.StoreName)</td>
-                <td>@Html.DisplayFor(modelItem => item.StorePhone)</td>
-                <td>@Html.DisplayFor(modelItem => address)</td>
-                <td>
-                    @Html.ActionLink("View","ViewStore", "OurStore", new { p_id = item.Id }, new { @style = "color:white", @class = "btn btn-info" })
-                </td>
-            </tr>
+                string address = $"{ item.addressVM.Street} , { item.addressVM.City} , {item.addressVM.State} , {item.addressVM.Country}";
+
+
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Id)</td>
+                    <td>@Html.DisplayFor(modelItem => item.StoreName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.StorePhone)</td>
+                    <td>@Html.DisplayFor(modelItem => address)</td>
+                    <td>
+                        @Html.ActionLink("View", "ViewStoreProducts", "OurStore", new { p_Storeid = item.Id }, new { @style = "color:white", @class = "btn btn-info" })
+                    </td>
+                </tr>
             }
         </tbody>
     </table>
 </div>
+<h2>Welcome @User.Identity.Name</h2>
+<ul>
+    @foreach (var c in User.Claims)
+    {
+        <li>@c.Type: @c.Value </li>
+    }
+</ul>

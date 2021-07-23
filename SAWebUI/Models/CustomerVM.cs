@@ -21,6 +21,10 @@ namespace SAWebUI.Models
             CustomerPhone = p_customer.CustomerPhone;
             CustomerAddressId = p_customer.CustomerAddressId;
             CustomerPassword = p_customer.CustomerPassword;
+            Street = p_customer.CustomerAddress.Street;
+            City = p_customer.CustomerAddress.City;
+            State = p_customer.CustomerAddress.State;
+            Country = p_customer.CustomerAddress.Country;
         }
 
         public int Id { get; set; }
@@ -30,6 +34,14 @@ namespace SAWebUI.Models
         public string CustomerPhone { get; set; }
         public string CustomerPassword { get; set; }
         public int CustomerAddressId { get; set; }
+        [Required]
+        public string Street { get; set; }
+        [Required]
+        public string City { get; set; }
+        [Required]
+        public string State { get; set; }
+        [Required]
+        public string Country { get; set; }
 
     }
 }

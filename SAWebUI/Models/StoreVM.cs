@@ -14,29 +14,19 @@ namespace SAWebUI.Models
         {
 
         }
-        public StoreVM(Store p_store,Address p_address)
+        public StoreVM(Store p_store)
         {
             Id = p_store.Id;
             StoreName = p_store.StoreName;
             StorePhone = p_store.StorePhone;
             StoreAddressId = p_store.StoreAddressId;
-            Street = p_address.Street;
-            City = p_address.City;
-            State = p_address.City;
-            Country = p_address.Country;
+            addressVM = new AddressVM(p_store.StoreAddress);
         }
 
         public int Id { get; set; }
         public string StoreName { get; set; }
         public string StorePhone { get; set; }
         public int StoreAddressId { get; set; }
-        [Required]
-        public string Street { get; set; }
-        [Required]
-        public string City { get; set; }
-        [Required]
-        public string State { get; set; }
-        [Required]
-        public string Country { get; set; }
+        public AddressVM addressVM { get; set; }
     }
 }

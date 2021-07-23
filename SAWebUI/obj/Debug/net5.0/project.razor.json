@@ -15629,6 +15629,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\klaus\\Documents\\Revature\\SAP1\\SAWebUI\\Views\\OurStore\\ViewStore.cshtml",
+      "TargetPath": "Views\\OurStore\\ViewStore.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\klaus\\Documents\\Revature\\SAP1\\SAWebUI\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
@@ -15669,8 +15674,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\klaus\\Documents\\Revature\\SAP1\\SAWebUI\\Views\\OurStore\\MyCart.cshtml",
+      "TargetPath": "Views\\OurStore\\MyCart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\klaus\\Documents\\Revature\\SAP1\\SAWebUI\\Views\\Home\\Secured.cshtml",
       "TargetPath": "Views\\Home\\Secured.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\klaus\\Documents\\Revature\\SAP1\\SAWebUI\\Views\\OurStore\\OurStoreIndex.cshtml",
+      "TargetPath": "Views\\OurStore\\OurStoreIndex.cshtml",
       "FileKind": "mvc"
     }
   ],
