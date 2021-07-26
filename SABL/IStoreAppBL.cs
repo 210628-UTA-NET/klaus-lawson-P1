@@ -8,6 +8,7 @@ namespace SABL
     {
         public Customer AddCustomer(Customer p_customer);
         public Customer FindCustomerByKey(string p_searchKey);
+        public Customer FindCustomerLogin(string p_email, string p_pwd);
         public Customer UpdateCustomer(Customer p_customer);
         public bool DeleteCustomer(Customer p_cust);
         public bool DeleteCustomerById(int p_id);

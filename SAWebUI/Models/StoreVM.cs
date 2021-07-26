@@ -23,10 +23,22 @@ namespace SAWebUI.Models
             addressVM = new AddressVM(p_store.StoreAddress);
         }
 
+        [Key]
         public int Id { get; set; }
+        [Required]
         public string StoreName { get; set; }
+        [Required]
         public string StorePhone { get; set; }
         public int StoreAddressId { get; set; }
         public AddressVM addressVM { get; set; }
+
+        public Store ConvertToStore()
+        {
+            return new Store()
+            {
+                StoreName = this.StoreName,
+                StorePhone = this.StorePhone,
+            };
+        }
     }
 }

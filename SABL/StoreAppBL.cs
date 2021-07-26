@@ -24,6 +24,10 @@ namespace SABL
         {
             return _custRepo.FindCustomerByKey(p_searchKey);
         }
+        public Customer FindCustomerLogin(string p_email, string p_pwd)
+        {
+            return _custRepo.FindCustomerLogin(p_email, p_pwd);
+        }
         public Customer UpdateCustomer(Customer p_customer)
         {
             return _custRepo.UpdateCustomer(p_customer);

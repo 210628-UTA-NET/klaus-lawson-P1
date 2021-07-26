@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using SABL;
 using SAModels;
 using SAWebUI.Models;
@@ -7,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using SAWebUI.Helpers;
+using Microsoft.AspNetCore.Http;
 
 namespace SAWebUI.Controllers
 {
@@ -19,74 +22,133 @@ namespace SAWebUI.Controllers
             _storeBL = p_storeBL;
         }
 
-        // Get All Store
-        public IActionResult OurStoreIndex()
-        {
-            List<Store> lstores = _storeBL.GetAllStoresWhithAddress();
-            List<StoreVM> listStoreVM = new List<StoreVM>();
-            /*List<Store> lstores  = _storeBL.GetAllStores().Join(_storeBL.GetAllAddress(),
-                                store => store.StoreAddressId,
-                                addr => addr.Id,
-                                (store, addr) => new { Store = store, Address = addr }).ToList();*/
-            foreach (var sa in lstores)
-            {
-                StoreVM storeVM = new StoreVM(sa);
-                listStoreVM.Add(storeVM);
-            }
-            return View(listStoreVM);
-        }
-
-        //Get all Products from a store
-        public IActionResult ViewStoreProducts(int p_Storeid)
-        {
-            ViewBag.StoreName = _storeBL.GetStoreById(p_Storeid).StoreName;
-            List<ProductVM> storeVMProducts = new List<ProductVM>();
-            List<Product> storeProducts =  _storeBL.GetProductsByStoreId(p_Storeid);
-            foreach(Product p in storeProducts)
-            {
-                storeVMProducts.Add(new ProductVM(p));
-            }
-            return View(storeVMProducts);
-        }
         //Get all product from all store
-        public IActionResult ViewAllProducts()
+        public IActionResult Shopping()
         {
-            
-            List<ProductVM> ListProductsVM = new List<ProductVM>();
-            List<Product> AllProducts = _storeBL.GetAllProducts();
-            foreach (Product p in AllProducts)
+            if (SessionHelper.GetObjectFromJson<List<Cart>>(HttpContext.Session, "cart") != null)
             {
-                ListProductsVM.Add(new ProductVM(p));
+                List<Cart> li2 = SessionHelper.GetObjectFromJson<List<Cart>>(HttpContext.Session, "cart");
+                double x = 0;
+                foreach (var item in li2)
+                {
+                    x += item.Bill;
+                }
+                TempData["Total"] = x;
+                SessionHelper.SetObjectAsJson(HttpContext.Session, "Total", x);
             }
+            List<ProductVM> ListProductsVM = _storeBL.GetAllProducts().Select(prd => new ProductVM(prd)).ToList();
             return View(ListProductsVM);
         }
 
 
-        public IActionResult AddtoCart(int p_productId)
+
+        public ActionResult AddToCart(int p_id)
         {
-            Product p = _storeBL.GetProductById(p_productId);
-            
-            int stId = p.StoreId;
-            if (ViewData["Cart"] == null)
+            ProductVM p = new ProductVM(_storeBL.GetProductById(p_id));
+            return View(p);
+        }
+        List<Cart> li = new List<Cart>();
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddToCart(ProductVM pi, string qty, int p_id)
+        {
+
+            ProductVM p = new ProductVM(_storeBL.GetProductById(p_id));
+            TempData["StoreId"] = p.StoreId;
+            Cart c = new Cart();
+            c.Productid = p.Id;
+            c.Price = (double)p.ProductUnitPrice;
+            c.Qty = Convert.ToInt32(qty);
+            c.Bill = c.Price * c.Qty;
+            c.Productname = p.ProductName;
+            if (SessionHelper.GetObjectFromJson<List<Cart>>(HttpContext.Session, "cart") == null)
             {
-                List<LineItemVM> cart = new List<LineItemVM>();
-                LineItem li = new LineItem();
-                li.ProductId = p_productId;
-                li.QuantityToBuy = 1;
-                cart.Add(new LineItemVM(li));
-                ViewData["Cart"] = cart;
+                li.Add(c);
+                SessionHelper.SetObjectAsJson(HttpContext.Session, "cart", li);
             }
             else
             {
-                List<LineItemVM> cart = (List<LineItemVM>)ViewBag.Cart;
-                LineItem li = new LineItem();
-                li.ProductId = p_productId;
-                li.QuantityToBuy = 1;
-                cart.Add(new LineItemVM(li));
-                ViewData["Cart"] = cart;
-            }
+                TempData.TryGetValue("cart", out object o);
+                List<Cart> li2 = SessionHelper.GetObjectFromJson<List<Cart>>(HttpContext.Session, "cart");
 
-            return RedirectToAction("ViewStore", new { p_id = stId});
+                int flag = 0;
+                foreach (var item in li2)
+                {
+                    if (item.Productid == c.Productid)
+                    {
+                        item.Qty += c.Qty;
+                        item.Bill += c.Bill;
+                        flag = 1;
+                    }
+                }
+                if (flag == 0)
+                {
+                    li2.Add(c);
+                }
+                SessionHelper.SetObjectAsJson(HttpContext.Session, "cart", li2);
+            }
+            TempData.Keep();
+            return RedirectToAction("Shopping");
+        }
+
+        public ActionResult Checkout()
+        {
+            List<Cart> l = SessionHelper.GetObjectFromJson<List<Cart>>(HttpContext.Session, "cart");
+            TempData.Keep();
+            return View(l);
+        }
+
+        OrderVM orderVM;
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Checkout(int? i)
+        {
+            List<Cart> li = SessionHelper.GetObjectFromJson<List<Cart>>(HttpContext.Session, "cart");
+            orderVM = new OrderVM();
+            orderVM.Location = "Store KL";
+            orderVM.OrderDate = DateTime.Now;
+            orderVM.CustomerId = (int)SessionHelper.GetObjectFromJson<Customer>(HttpContext.Session, "User").Id;
+
+            orderVM.OrderTotalPrice = (double)(SessionHelper.GetObjectFromJson<double>(HttpContext.Session, "Total"));
+            orderVM.OrderStatus = "PLACED";
+            orderVM.StoreId = (int)(TempData["StoreId"]);
+
+            int ordId = _storeBL.AddOrder(orderVM.ConvertToOrder()).Id;
+            foreach (var item in li)
+            {
+                LineItem lineItem = new LineItem
+                {
+                    ProductId = item.Productid,
+                    OrderId = ordId,
+                    QuantityToBuy = item.Qty
+                };
+                _storeBL.AddLineItem(lineItem);
+            }
+            TempData.Remove("total");
+            SessionHelper.SetObjectAsJson(HttpContext.Session, "Total", 0);
+            SessionHelper.SetObjectAsJson(HttpContext.Session, "cart", null);
+            TempData["msg"] = "Transaction has been completed";
+            TempData.Keep();
+            return RedirectToAction("Shopping");
+        }
+
+        [HttpPost]
+        public ActionResult Remove(int? id)
+        {
+            li = SessionHelper.GetObjectFromJson<List<Cart>>(HttpContext.Session, "cart");
+            Cart c = li.Where(x => x.Productid == id).SingleOrDefault();
+            li.Remove(c);
+
+            double h = 0;
+            foreach (var item in li)
+            {
+                h += item.Bill;
+            }
+            TempData.Remove("total");
+            TempData["total"] = h;
+            SessionHelper.SetObjectAsJson(HttpContext.Session, "Total", h);
+            //TempData.Keep();
+            return RedirectToAction("Checkout");
         }
     }
 }

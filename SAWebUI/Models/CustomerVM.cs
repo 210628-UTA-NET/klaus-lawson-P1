@@ -20,28 +20,35 @@ namespace SAWebUI.Models
             CustomerEmail = p_customer.CustomerEmail;
             CustomerPhone = p_customer.CustomerPhone;
             CustomerAddressId = p_customer.CustomerAddressId;
-            CustomerPassword = p_customer.CustomerPassword;
-            Street = p_customer.CustomerAddress.Street;
-            City = p_customer.CustomerAddress.City;
-            State = p_customer.CustomerAddress.State;
-            Country = p_customer.CustomerAddress.Country;
+            addressVM = new AddressVM(p_customer.CustomerAddress);
         }
 
+        [Key]
         public int Id { get; set; }
+        [Required]
         public string CustomerFirstName { get; set; }
+        [Required]
         public string CustomerLastName { get; set; }
+        [Required]
         public string CustomerEmail { get; set; }
+        [Required]
         public string CustomerPhone { get; set; }
+        [Required]
         public string CustomerPassword { get; set; }
+        [Compare("CustomerPassword", ErrorMessage = "Confirm password doesn't match, Type again !")]
+        public string CustomerConfirmPassword { get; set; }
         public int CustomerAddressId { get; set; }
-        [Required]
-        public string Street { get; set; }
-        [Required]
-        public string City { get; set; }
-        [Required]
-        public string State { get; set; }
-        [Required]
-        public string Country { get; set; }
-
+        public AddressVM addressVM { get; set; }
+        public Customer ConvertToCustomer()
+        {
+            return new Customer()
+            {
+                CustomerFirstName = this.CustomerFirstName,
+                CustomerLastName = this.CustomerLastName,
+                CustomerEmail = this.CustomerEmail,
+                CustomerPhone = this.CustomerPhone,
+                CustomerPassword = this.CustomerPassword,
+            };
+        }
     }
 }

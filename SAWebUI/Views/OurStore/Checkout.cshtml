@@ -1,0 +1,70 @@
+﻿@model IEnumerable<SAWebUI.Models.Cart>;
+@{
+    ViewBag.Title = "checkout";
+}
+
+
+<h2>checkout</h2>
+
+@if (@Model as List<Cart> != null)
+{
+
+
+    <table class="table table-responsive">
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>PRICE</th>
+                <th>QUANTITY</th>
+                <th>BILL</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in @Model as List<Cart>)
+            {
+
+                <tr>
+                    <td>@item.Productid</td>
+                    <td>@item.Productname</td>
+                    <td>@item.Price</td>
+                    <td>@item.Qty</td>
+                    <td>@item.Bill</td>
+                    <td><a class="btn btn-danger btn-sm" href="@Url.Action("Remove",new{id=@item.Productid})">&#10060;</a></td>
+                </tr>
+
+            }
+
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td colspan="4"></td>
+               @* <td>@TempData["total"]</td>*@
+
+            </tr>
+        </tfoot>
+
+    </table>
+
+
+
+
+
+}
+else
+{
+    <h2 style="color:red"> Cart is empty....</h2>
+    @Html.ActionLink("go Back", "Shopping", "OurStore")
+}
+
+@if (@Model as List<Cart> != null)
+{
+    using (Html.BeginForm())
+    {
+        <input type="submit" value="Shop Now" class="btn btn-primary" />
+
+    }
+
+}

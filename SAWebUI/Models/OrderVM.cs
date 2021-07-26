@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using SAModels;
 using System.ComponentModel.DataAnnotations;
 
@@ -28,5 +24,18 @@ namespace SAWebUI.Models
         public string OrderStatus { get; set; }
         public int StoreId { get; set; }
         public int CustomerId { get; set; }
+
+        public Order ConvertToOrder()
+        {
+            return new Order()
+            {
+                Location = this.Location,
+                OrderTotalPrice = this.OrderTotalPrice,
+                OrderDate = this.OrderDate,
+                OrderStatus = this.OrderStatus,
+                StoreId = this.StoreId,
+                CustomerId = this.CustomerId
+            };
+        }
     }
 }

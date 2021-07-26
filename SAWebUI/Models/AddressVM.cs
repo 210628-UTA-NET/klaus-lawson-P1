@@ -30,7 +30,18 @@ namespace SAWebUI.Models
         public string City { get; set; }
         [Required]
         public string State { get; set; }
-        [Required]
         public string Country { get; set; }
+        [Required]
+        public string Zip { get; set; }
+        public Address ConvertToAddress()
+        {
+            return new Address()
+            {
+                Street = this.Street,
+                City = this.City,
+                State = this.State,
+                Country = this.Country,
+            };
+        }
     }
 }

@@ -48,6 +48,7 @@ namespace SAWebUI
                         }
                     };
                 });
+            services.AddSession();
             services.AddDbContext<SADBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Reference2DB")));
             services.AddScoped<IRepository, Repository>();
             services.AddScoped<IStoreAppBL, StoreAppBL>();
@@ -67,6 +68,7 @@ namespace SAWebUI
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
+            app.UseSession();
             app.UseStaticFiles();
 
             app.UseRouting();

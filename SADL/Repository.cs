@@ -30,6 +30,11 @@ namespace SADL
             return _context.Customers.Where(cust => cust.CustomerEmail == p_searchKey)
                                        .FirstOrDefault();
         }
+        public Customer FindCustomerLogin(string p_email,string p_pwd)
+        {
+            return _context.Customers.Where(cust => cust.CustomerEmail == p_email && cust.CustomerPassword == p_pwd)
+                                       .FirstOrDefault();
+        }
         public Customer UpdateCustomer(Customer p_customer)
         {
             _context.Customers.Update(p_customer);

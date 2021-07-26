@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using SABL;
+using SAModels;
 using SAWebUI.Models;
 using System;
 using System.Collections.Generic;
@@ -10,16 +12,20 @@ using System.Diagnostics;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using SAWebUI.Helpers;
+using Microsoft.AspNetCore.Http;
 
 namespace SAWebUI.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private IStoreAppBL _storeBL;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IStoreAppBL p_storeBL)
         {
             _logger = logger;
+            _storeBL = p_storeBL;
         }
 
         public IActionResult Index()
@@ -38,12 +44,18 @@ namespace SAWebUI.Controllers
         public async Task<IActionResult> ValidateAsync(string email, string password, string returnUrl)
         {
             ViewData["ReturnUrl"] = returnUrl;
-            if (email == "klaus@gmail.com" && password == "123456")
+            Customer loginCust = _storeBL.FindCustomerLogin(email, password);
+            
+            if (loginCust!=null)
             {
+                TempData["UserId"] = loginCust.Id;
+                SessionHelper.SetObjectAsJson(HttpContext.Session, "User", loginCust);
                 var claims = new List<Claim>();
                 claims.Add(new Claim("email", email));
+                claims.Add(new Claim(ClaimTypes.Sid,loginCust.Id.ToString()));
                 claims.Add(new Claim(ClaimTypes.NameIdentifier, email));
-                claims.Add(new Claim(ClaimTypes.Name, "klaus Lawson"));
+                claims.Add(new Claim(ClaimTypes.MobilePhone, loginCust.CustomerPhone));
+                claims.Add(new Claim(ClaimTypes.Name, loginCust.CustomerFirstName+loginCust.CustomerLastName));
                 var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                 var claimsprincipal = new ClaimsPrincipal(claimsIdentity);
                 await HttpContext.SignInAsync(claimsprincipal);
@@ -66,6 +78,11 @@ namespace SAWebUI.Controllers
         {
             await HttpContext.SignOutAsync();
             return Redirect("/");
+        }
+        //Get register
+        public IActionResult MyProfile()
+        {
+            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
