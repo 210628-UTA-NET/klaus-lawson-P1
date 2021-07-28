@@ -28,7 +28,7 @@ jobs:
       with:
         # The key of the SonarQube projects
         sonarProjectKey: 210628-UTA-NET_klaus-lawson-P1
-        # The name of the SonarQube project
+        # The name of the SonarQube projects
         sonarProjectName: klaus-lawson-P1
         sonarOrganization: 210628-uta-net
         dotnetDisableTests: true
