@@ -14,7 +14,7 @@ namespace SAWebUI
     {
         public static void Main(string[] args)
         {
-           // CreateHostBuilder(args).Build().Run();
+            CreateHostBuilder(args).Build().Run();
             var configuration = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json")
                 .Build();
