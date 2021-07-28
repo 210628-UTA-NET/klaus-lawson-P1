@@ -47,8 +47,8 @@
                         <td>@Html.DisplayFor(modelItem => item.CustomerPhone)</td>
                         <td>@Html.DisplayFor(modelItem => address)</td>
                         <td style="width:15%">
-                            @Html.ActionLink("", "EditCustomer", "OurStore", new { p_Storeid = item.Id }, new { @style = "color:green; margin:10px", @class = "fas fa-pen fa-2x" })
-                            @Html.ActionLink("", "", "OurStore", new { p_Storeid = item.Id }, new { @style = "color:red;  margin:10px", @class = "fas fa-trash fa-2x" })
+                            @Html.ActionLink("", "EditCustomer", "Management", new { p_customerId = item.Id }, new { @style = "color:green; margin:10px", @class = "fas fa-pen fa-2x" })
+                            @Html.ActionLink("", "DeleteCustomer", "Management", new { p_customerId = item.Id }, new { @style = "color:red;  margin:10px", @class = "fas fa-trash fa-2x" })
                         </td>
                     </tr>
                 }

@@ -15619,8 +15619,23 @@
   "RootNamespace": "SAWebUI",
   "Documents": [
     {
+      "FilePath": "c:\\Users\\klaus\\Documents\\Revature\\SAP1\\SAWebUI\\Views\\Management\\CreateCustomer.cshtml",
+      "TargetPath": "Views\\Management\\CreateCustomer.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\klaus\\Documents\\Revature\\SAP1\\SAWebUI\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\klaus\\Documents\\Revature\\SAP1\\SAWebUI\\Views\\OurStore\\Shopping.cshtml",
+      "TargetPath": "Views\\OurStore\\Shopping.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\klaus\\Documents\\Revature\\SAP1\\SAWebUI\\Views\\Management\\ViewStoreOrderHistory.cshtml",
+      "TargetPath": "Views\\Management\\ViewStoreOrderHistory.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15629,8 +15644,33 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\klaus\\Documents\\Revature\\SAP1\\SAWebUI\\Views\\OurStore\\ViewStore.cshtml",
-      "TargetPath": "Views\\OurStore\\ViewStore.cshtml",
+      "FilePath": "c:\\Users\\klaus\\Documents\\Revature\\SAP1\\SAWebUI\\Views\\Management\\DeleteCustomer.cshtml",
+      "TargetPath": "Views\\Management\\DeleteCustomer.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\klaus\\Documents\\Revature\\SAP1\\SAWebUI\\Views\\Management\\EditProduct.cshtml",
+      "TargetPath": "Views\\Management\\EditProduct.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\klaus\\Documents\\Revature\\SAP1\\SAWebUI\\Views\\OurStore\\ViewMyOrder.cshtml",
+      "TargetPath": "Views\\OurStore\\ViewMyOrder.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\klaus\\Documents\\Revature\\SAP1\\SAWebUI\\Views\\Home\\Denied.cshtml",
+      "TargetPath": "Views\\Home\\Denied.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\klaus\\Documents\\Revature\\SAP1\\SAWebUI\\Views\\Management\\ProductManagement.cshtml",
+      "TargetPath": "Views\\Management\\ProductManagement.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\klaus\\Documents\\Revature\\SAP1\\SAWebUI\\Views\\Management\\ViewStoreProducts.cshtml",
+      "TargetPath": "Views\\Management\\ViewStoreProducts.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15639,18 +15679,48 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\klaus\\Documents\\Revature\\SAP1\\SAWebUI\\Views\\Home\\Privacy.cshtml",
-      "TargetPath": "Views\\Home\\Privacy.cshtml",
+      "FilePath": "c:\\Users\\klaus\\Documents\\Revature\\SAP1\\SAWebUI\\Views\\Management\\CreateStore.cshtml",
+      "TargetPath": "Views\\Management\\CreateStore.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\klaus\\Documents\\Revature\\SAP1\\SAWebUI\\Views\\Customer\\Create.cshtml",
-      "TargetPath": "Views\\Customer\\Create.cshtml",
+      "FilePath": "c:\\Users\\klaus\\Documents\\Revature\\SAP1\\SAWebUI\\Views\\Management\\CreateProduct.cshtml",
+      "TargetPath": "Views\\Management\\CreateProduct.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\klaus\\Documents\\Revature\\SAP1\\SAWebUI\\Views\\Customer\\Index.cshtml",
-      "TargetPath": "Views\\Customer\\Index.cshtml",
+      "FilePath": "c:\\Users\\klaus\\Documents\\Revature\\SAP1\\SAWebUI\\Views\\Home\\MyProfile.cshtml",
+      "TargetPath": "Views\\Home\\MyProfile.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\klaus\\Documents\\Revature\\SAP1\\SAWebUI\\Views\\OurStore\\MyOrders.cshtml",
+      "TargetPath": "Views\\OurStore\\MyOrders.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\klaus\\Documents\\Revature\\SAP1\\SAWebUI\\Views\\OurStore\\AddToCart.cshtml",
+      "TargetPath": "Views\\OurStore\\AddToCart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\klaus\\Documents\\Revature\\SAP1\\SAWebUI\\Views\\Management\\EditCustomer.cshtml",
+      "TargetPath": "Views\\Management\\EditCustomer.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\klaus\\Documents\\Revature\\SAP1\\SAWebUI\\Views\\Management\\EditStore.cshtml",
+      "TargetPath": "Views\\Management\\EditStore.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\klaus\\Documents\\Revature\\SAP1\\SAWebUI\\Views\\Management\\DeleteStore.cshtml",
+      "TargetPath": "Views\\Management\\DeleteStore.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\klaus\\Documents\\Revature\\SAP1\\SAWebUI\\Views\\Management\\DeleteProduct.cshtml",
+      "TargetPath": "Views\\Management\\DeleteProduct.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15669,23 +15739,28 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\klaus\\Documents\\Revature\\SAP1\\SAWebUI\\Views\\OurStore\\Checkout.cshtml",
+      "TargetPath": "Views\\OurStore\\Checkout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\klaus\\Documents\\Revature\\SAP1\\SAWebUI\\Views\\Home\\Register.cshtml",
+      "TargetPath": "Views\\Home\\Register.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\klaus\\Documents\\Revature\\SAP1\\SAWebUI\\Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\klaus\\Documents\\Revature\\SAP1\\SAWebUI\\Views\\OurStore\\MyCart.cshtml",
-      "TargetPath": "Views\\OurStore\\MyCart.cshtml",
+      "FilePath": "c:\\Users\\klaus\\Documents\\Revature\\SAP1\\SAWebUI\\Views\\Management\\StoreManagement.cshtml",
+      "TargetPath": "Views\\Management\\StoreManagement.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\klaus\\Documents\\Revature\\SAP1\\SAWebUI\\Views\\Home\\Secured.cshtml",
-      "TargetPath": "Views\\Home\\Secured.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\klaus\\Documents\\Revature\\SAP1\\SAWebUI\\Views\\OurStore\\OurStoreIndex.cshtml",
-      "TargetPath": "Views\\OurStore\\OurStoreIndex.cshtml",
+      "FilePath": "c:\\Users\\klaus\\Documents\\Revature\\SAP1\\SAWebUI\\Views\\Management\\CustomerManagement.cshtml",
+      "TargetPath": "Views\\Management\\CustomerManagement.cshtml",
       "FileKind": "mvc"
     }
   ],

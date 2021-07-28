@@ -924,3 +924,5 @@ C:\Users\klaus\Documents\Revature\SAP1\SAWebUI\obj\Debug\net5.0\Razor\Views\OurS
 C:\Users\klaus\Documents\Revature\SAP1\SAWebUI\obj\Debug\net5.0\Razor\Views\Management\ViewStoreProducts.cshtml.g.cs
 C:\Users\klaus\Documents\Revature\SAP1\SAWebUI\obj\Debug\net5.0\Razor\Views\Management\ViewStoreOrderHistory.cshtml.g.cs
 C:\Users\klaus\Documents\Revature\SAP1\SAWebUI\obj\Debug\net5.0\Razor\Views\Home\Register.cshtml.g.cs
+C:\Users\klaus\Documents\Revature\SAP1\SAWebUI\obj\Debug\net5.0\Razor\Views\Management\DeleteCustomer.cshtml.g.cs
+C:\Users\klaus\Documents\Revature\SAP1\SAWebUI\obj\Debug\net5.0\Razor\Views\Management\EditCustomer.cshtml.g.cs

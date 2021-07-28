@@ -1,0 +1,69 @@
+﻿@model SAWebUI.Models.CustomerVM;
+
+<div class="g-3" style="margin:15%; margin-top:5%">
+    <h1 class="display-4">Create Customer page</h1>
+    <form class="row g-3" asp-action="DeleteCustomer">
+        <input asp-for="Id" hidden />
+        <input asp-for="CustomerAddressId" hidden />
+        <input asp-for="addressVM.Id" hidden />
+        <div class="col-md-4">
+            <label asp-for="CustomerFirstName" class="form-label"></label>
+            <input asp-for="CustomerFirstName" disabled type="text" class="form-control">
+        </div>
+        <div class="col-md-4">
+            <label asp-for="CustomerLastName" class="form-label"></label>
+            <input asp-for="CustomerLastName" disabled type="text" class="form-control">
+        </div>
+        <div class="col-md-4">
+            <label asp-for="CustomerRole" class="form-label"></label>
+            <select asp-for="CustomerRole" disabled class="form-select">
+                <option selected>User</option>
+                <option selected>Admin</option>
+            </select>
+        </div>
+        <div class="col-12">
+            <label asp-for="addressVM.Street" class="form-label"></label>
+            <input asp-for="addressVM.Street" disabled type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+        </div>
+        <div class="col-md-6">
+            <label asp-for="addressVM.City" class="form-label"></label>
+            <input asp-for="addressVM.City" disabled type="text" class="form-control" id="inputCity">
+        </div>
+        <div class="col-md-4">
+            <label asp-for="addressVM.State" class="form-label"></label>
+            <select asp-for="addressVM.State" disabled asp-items="ViewBag.States" id="inputState" class="form-select">
+                <option selected>Choose...</option>
+            </select>
+        </div>
+        <div class="col-md-2">
+            <label asp-for="addressVM.Zip" class="form-label"></label>
+            <input asp-for="addressVM.Zip" disabled type="text" class="form-control" id="inputZip">
+        </div>
+        <div class="col-md-6">
+            <label asp-for="CustomerEmail" class="form-label"></label>
+            <input asp-for="CustomerEmail" disabled type="email" class="form-control">
+        </div>
+        <div class="col-md-6">
+            <label asp-for="CustomerPhone" class="form-label"></label>
+            <input asp-for="CustomerPhone" disabled type="text" class="form-control">
+        </div>
+        <div class="col-md-6">
+            <label asp-for="CustomerPassword" class="form-label"></label>
+            <input asp-for="CustomerPassword" disabled type="password" class="form-control">
+        </div>
+        <div class="col-md-6">
+            <label asp-for="CustomerConfirmPassword" class="form-label"></label>
+            <input asp-for="CustomerConfirmPassword" disabled type="password" class="form-control">
+
+        </div>
+        <div>
+
+        </div>
+        <div class="col-lg-5">
+            <button type="submit" class="btn btn-success  col align-content-lg-start">Create</button>
+        </div>
+        <div class="col-lg-5">
+            <button asp-action="CustomerManagement" class="btn btn-secondary col align-content-lg-end">Back</button>
+        </div>
+    </form>
+</div>

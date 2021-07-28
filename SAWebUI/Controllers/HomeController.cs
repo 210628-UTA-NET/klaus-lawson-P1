@@ -133,13 +133,7 @@ namespace SAWebUI.Controllers
         public IActionResult MyProfile()
         {
             _logger.LogInformation("My Profile Page");
-            try
-            {
-                throw new Exception();
-            }catch(Exception ex)
-            {
-                _logger.LogError(ex, "This Exception from Profile Page");
-            }
+            
             return View();
         }
 
