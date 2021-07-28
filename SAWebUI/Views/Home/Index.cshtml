@@ -2,20 +2,13 @@
     ViewData["Title"] = "Home Page";
     
 }
-
-<div class="text-center">
-    <h1 class="display-4">Welcome to our Store Home</h1>
+<div class="container" style="width: 10000px;height: 800px; background-color:#E0FFFF;">
+    <div class="text-center"  background-color:antiquewhite">
+        <h1 class="display-4">
+            Welcome to our Store Home <b><em>
+    @if (User.Identity.IsAuthenticated)
+    {@User.Identity.Name}
+        </em></b>
+        </h1>
+    </div>
 </div>
-@{ 
-    if (User.Identity.IsAuthenticated)
-    {
-       
-            <h2>Welcome @User.Identity.Name</h2>
-            <ul>
-                @foreach (var c in User.Claims)
-                {
-                    <li>@c.Type: @c.Value </li>
-                }
-            </ul>
-    }
-}

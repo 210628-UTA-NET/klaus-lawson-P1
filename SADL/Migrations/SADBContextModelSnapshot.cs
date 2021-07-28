@@ -38,6 +38,9 @@ namespace SADL.Migrations
                     b.Property<string>("Street")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Zip")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.ToTable("Addresses");
@@ -68,7 +71,7 @@ namespace SADL.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CustomerAddressId")
+                    b.Property<int>("CustomerAddressId")
                         .HasColumnType("int");
 
                     b.Property<string>("CustomerEmail")
@@ -84,6 +87,9 @@ namespace SADL.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CustomerPhone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CustomerRole")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -118,7 +124,7 @@ namespace SADL.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CustomerId")
+                    b.Property<int>("CustomerId")
                         .HasColumnType("int");
 
                     b.Property<string>("Location")
@@ -152,7 +158,7 @@ namespace SADL.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CategoryId")
+                    b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
                     b.Property<int>("ProductAvailableQty")
@@ -186,7 +192,7 @@ namespace SADL.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("StoreAddressId")
+                    b.Property<int>("StoreAddressId")
                         .HasColumnType("int");
 
                     b.Property<string>("StoreName")
@@ -206,7 +212,9 @@ namespace SADL.Migrations
                 {
                     b.HasOne("SAModels.Address", "CustomerAddress")
                         .WithMany()
-                        .HasForeignKey("CustomerAddressId");
+                        .HasForeignKey("CustomerAddressId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("CustomerAddress");
                 });
@@ -234,7 +242,9 @@ namespace SADL.Migrations
                 {
                     b.HasOne("SAModels.Customer", "Customer")
                         .WithMany("CustomerOrders")
-                        .HasForeignKey("CustomerId");
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("SAModels.Store", "Store")
                         .WithMany("StoreOrders")
@@ -249,7 +259,9 @@ namespace SADL.Migrations
                 {
                     b.HasOne("SAModels.Category", "Category")
                         .WithMany("Products")
-                        .HasForeignKey("CategoryId");
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("SAModels.Store", "Store")
                         .WithMany("StoreProducts")
@@ -264,7 +276,9 @@ namespace SADL.Migrations
                 {
                     b.HasOne("SAModels.Address", "StoreAddress")
                         .WithMany()
-                        .HasForeignKey("StoreAddressId");
+                        .HasForeignKey("StoreAddressId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("StoreAddress");
                 });

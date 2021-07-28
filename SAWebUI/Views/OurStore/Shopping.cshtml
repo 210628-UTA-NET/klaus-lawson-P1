@@ -1,32 +1,9 @@
 ﻿@model IEnumerable<SAWebUI.Models.ProductVM>
 
-@*    <div class="text-center ">
-        <h1 class="display-4 text-left">List of Product from @TempData["UserId"]</h1>
-        <table class="table table-striped table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">Product Name</th>
-                    <th scope="col">unit Price</th>
-                    <th scope="col">Quantity in Stock</th>
-                    <th scope="col">Product Description</th>
-                    <th scope="col">Operation</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (ProductVM item in Model)
-                {
-                    <tr>
-                        <td>@Html.DisplayFor(modelItem => item.ProductName)</td>
-                        <td>@Html.DisplayFor(modelItem => item.ProductUnitPrice)</td>
-                        <td>@Html.DisplayFor(modelItem => item.ProductAvailableQty)</td>
-                        <td>@Html.DisplayFor(modelItem => item.ProductDescription)</td>
-                        <td>@Html.ActionLink("", "AddToCart", new { p_productId = item.Id }, new { @class = "fas fa-cart-plus" })</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>*@
-<h1 class="display-4 text-left">List of Product from </h1>
+<form>
+
+</form>
+<h1 class="display-4 text-left">List of Product </h1>
 <div class="row">
     <div class="col-lg-10 col-md-10 col-sm-10">
         @if (TempData["msg"] != null)
@@ -58,13 +35,15 @@
         {
             <div class="col-lg-3">
                 <div class="card" style="width: 15rem;">
-                    <img style="min-height:100px;width:100px" src="~/images/pen.png">
+                    <img style="min-height:100px;width:100px" src="~/images/prd.png">
                     <div class="card-body">
-                        <p class="card-text"><h5>Product: @item.ProductName</h5> </p>
-                        <p class="card-text"><h5>Price: @item.ProductUnitPrice</h5></p>
-                            <span class="btn btn-warning">
-                                @Html.ActionLink("", "AddToCart", new { p_id = @item.Id }, new { @class = "fas fa-cart-plus" })
-                            </span>
+                        <p class="card-text">Product : <b> @item.ProductName</b>  </p>
+                        <p class="card-text">Price: <b><em>@item.ProductUnitPrice</em>$</b> 
+                                                    <span class="btn btn-outline-light">
+                                                        @Html.ActionLink("", "AddToCart", new { p_id = @item.Id }, new { @class = "fas fa-cart-plus" })
+                                                    </span>
+                        </p>
+                            
                         
                     </div>
                 </div>

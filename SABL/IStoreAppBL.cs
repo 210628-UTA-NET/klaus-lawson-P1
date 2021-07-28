@@ -7,13 +7,16 @@ namespace SABL
     public interface IStoreAppBL
     {
         public Customer AddCustomer(Customer p_customer);
+        public Customer FindCustomerById(int p_id);
         public Customer FindCustomerByKey(string p_searchKey);
+        public List<Customer> FindCustomerByName(string p_searchKey);
         public Customer FindCustomerLogin(string p_email, string p_pwd);
         public Customer UpdateCustomer(Customer p_customer);
         public bool DeleteCustomer(Customer p_cust);
         public bool DeleteCustomerById(int p_id);
         public List<Customer> GetAllCustomers();
         public List<Customer> GetAllCustomerWithAddress();
+        public Customer GetCustomerWithAddressById(int p_Id);
 
 
 
@@ -26,6 +29,7 @@ namespace SABL
         public List<Store> GetAllStores();
         public Store GetStoreById(int p_Id);
         public List<Store> GetAllStoresWhithAddress();
+        public Store GetStoreWithAddressById(int p_Id);
 
 
         //Address Operation

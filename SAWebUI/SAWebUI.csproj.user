@@ -13,6 +13,9 @@
     <WebStackScaffolding_IdentityDialogWidth>650</WebStackScaffolding_IdentityDialogWidth>
     <NameOfLastUsedPublishProfile>registry.hub.docker.com_klausmuller1995</NameOfLastUsedPublishProfile>
     <ActiveDebugProfile>SAWebUI</ActiveDebugProfile>
+    <WebStackScaffolding_IsLayoutPageSelected>True</WebStackScaffolding_IsLayoutPageSelected>
+    <WebStackScaffolding_IsPartialViewSelected>False</WebStackScaffolding_IsPartialViewSelected>
+    <WebStackScaffolding_IsReferencingScriptLibrariesSelected>False</WebStackScaffolding_IsReferencingScriptLibrariesSelected>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>

@@ -1,18 +1,25 @@
 ﻿@model IEnumerable<SAWebUI.Models.StoreVM>
 
+ <div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="display-4">Stores List</h2>
+        </div>
+        <div class="col-6 text-right">
+            <a type="button" class="btn btn-primary" asp-action="createStore" style="margin-bottom:10px;">Add New Store</a>
+        </div>
+    </div>
 
-<h1>Store Management</h1>
-<div class="text-center">
-    <h2 class="display-4">List Of Our Stores</h2>
-    <a type="button" class="btn btn-primary" asp-action="createStore" style="margin-bottom:10px">Add New Store</a>
-    <table class="table table-striped table-hover">
+    @if (Model.Count() > 0)
+    {
+    <table class="table table-striped table-hover fa-eye">
         <thead>
             <tr>
                 <th scope="col">Store Id</th>
                 <th scope="col">Store Name</th>
                 <th scope="col">Phone</th>
                 <th scope="col">Address</th>
-                <th scope="col">Operations</th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -25,15 +32,21 @@
                     <td>@Html.DisplayFor(modelItem => item.StorePhone)</td>
                     <td>@Html.DisplayFor(modelItem => address)</td>
                     <td>
-                        @Html.ActionLink("Edit", "", "OurStore", new { p_Storeid = item.Id }, new { @style = "color:white", @class = "btn btn-success" })
-                        @Html.ActionLink("Delete", "", "OurStore", new { p_Storeid = item.Id }, new { @style = "color:white", @class = "btn btn-danger" })
-                        @Html.ActionLink("View", "ViewStoreProducts", "OurStore", new { p_Storeid = item.Id }, new { @style = "color:white", @class = "btn btn-info" })
+                        @Html.ActionLink("", "EditStore", "Management", new { p_storeid = item.Id }, new { @style = "color:white; margin-right:5%;", @class = "btn btn-success fas fa-edit" })
+                        @Html.ActionLink("X", "DeleteStore", "Management", new { p_storeId = item.Id }, new { @style = "color:white; margin-right:5%;font:bold", @class = "btn btn-danger" })
+                        @Html.ActionLink("Products", "ViewStoreProducts", "Management", new { p_storeId = item.Id }, new { @style = "color:white; margin-right:5%;", @class = "btn btn-primary" })
+                        @Html.ActionLink("Orders", "ViewStoreOrderHistory", "Management", new { p_storeId = item.Id }, new { @style = "color:white; margin-right:5%;", @class = "btn btn-primary" })
                     </td>
-                    <td>
-                      
-                    </td>
+                    
                 </tr>
             }
         </tbody>
     </table>
+    }
+    else 
+    { 
+        <h2 class="display-4">List Of Our Stores</h2>
+    }
+
+
 </div>

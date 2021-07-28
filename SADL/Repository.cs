@@ -25,10 +25,20 @@ namespace SADL
             _context.SaveChanges();
             return p_customer;
         }
+        public Customer FindCustomerById(int p_id)
+        {
+            return _context.Customers.Find(p_id);
+        }
         public Customer FindCustomerByKey(string p_searchKey)
         {
-            return _context.Customers.Where(cust => cust.CustomerEmail == p_searchKey)
+            return _context.Customers.AsNoTracking().Where(cust => cust.CustomerEmail == p_searchKey)
                                        .FirstOrDefault();
+        }
+        public List<Customer> FindCustomerByName(string p_searchKey)
+        {
+            return _context.Customers.AsNoTracking().Where(cust => cust.CustomerFirstName == p_searchKey || cust.CustomerLastName == p_searchKey)
+                                       .Include("CustomerAddress")
+                                       .ToList();
         }
         public Customer FindCustomerLogin(string p_email,string p_pwd)
         {
@@ -77,7 +87,13 @@ namespace SADL
         {
             return _context.Customers.Include("CustomerAddress").ToList();
         }
-        
+
+        public Customer GetCustomerWithAddressById(int p_Id)
+        {
+            return _context.Customers.Include("CustomerAddress")
+                .Where(c => c.Id == p_Id)
+                .FirstOrDefault();
+        }
 
 
         //Store Operations
@@ -131,6 +147,12 @@ namespace SADL
         public List<Store> GetAllStoresWhithAddress()
         {
             return _context.Stores.Include("StoreAddress").ToList();
+        }
+        public Store GetStoreWithAddressById(int p_Id)
+        {
+            return _context.Stores.Include("StoreAddress")
+                .Where(s => s.Id == p_Id)
+                .FirstOrDefault();
         }
 
 
@@ -280,7 +302,7 @@ namespace SADL
         }
         public List<Order> GetOrdersByCustomerId(int p_customerId)
         {
-            return _context.Orders.Where(o => o.CustomerId == p_customerId)
+            return _context.Orders.Where(o => o.CustomerId == p_customerId).Include("Store")
                 .ToList();
         }
         public Order GetOrderById(int p_orderId)
@@ -325,13 +347,12 @@ namespace SADL
         }
         public List<LineItem> GetLineItemsByOrderId(int p_orderId)
         {
-            return _context.lineItems.Where(li => li.OrderId == p_orderId)
+            return _context.lineItems.Where(li => li.OrderId == p_orderId).Include("Product")
                 .ToList();
         }
 
 
         //Category Operations
-        //product Operations
         public Category AddCategory(Category p_category)
         {
             _context.categories.Add(p_category);

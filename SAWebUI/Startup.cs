@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using System.Security.Claims;
 
 namespace SAWebUI
 {
@@ -32,10 +33,20 @@ namespace SAWebUI
                 .AddCookie(options=>
                 {
                     options.LoginPath = "/login";
+                    options.AccessDeniedPath = "/denied";
                     options.Events = new CookieAuthenticationEvents()
                     {
                         OnSigningIn = async context =>
                         {
+                            /*var principal = context.Principal;
+                            if(principal.HasClaim(c => c.Type == ClaimTypes.Sid))
+                            {
+                                if(principal.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Sid).Value == "1")
+                                {
+                                    var claimsIdentity = principal.Identity as ClaimsIdentity;
+                                    claimsIdentity.AddClaim(new Claim(ClaimTypes.Role, "Admin"));
+                                }
+                            }*/
                             await Task.CompletedTask;
                         },
                         OnSignedIn = async context =>

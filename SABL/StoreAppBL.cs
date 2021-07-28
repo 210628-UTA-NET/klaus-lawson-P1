@@ -20,9 +20,22 @@ namespace SABL
         {
             return _custRepo.AddCustomer(p_customer);
         }
+        public Customer FindCustomerById(int p_id)
+        {
+            Customer findCust= _custRepo.FindCustomerById(p_id);
+            if (findCust == null)
+            {
+                throw new NullReferenceException("Customer not found");
+            }
+            return findCust;
+        }
         public Customer FindCustomerByKey(string p_searchKey)
         {
             return _custRepo.FindCustomerByKey(p_searchKey);
+        }
+        public List<Customer> FindCustomerByName(string p_searchKey)
+        {
+            return _custRepo.FindCustomerByName(p_searchKey);
         }
         public Customer FindCustomerLogin(string p_email, string p_pwd)
         {
@@ -47,6 +60,10 @@ namespace SABL
         public List<Customer> GetAllCustomerWithAddress()
         {
             return _custRepo.GetAllCustomerWithAddress();
+        }
+        public Customer GetCustomerWithAddressById(int p_Id)
+        {
+            return _custRepo.GetCustomerWithAddressById(p_Id);
         }
 
 
@@ -83,6 +100,10 @@ namespace SABL
         public List<Store> GetAllStoresWhithAddress()
         {
             return _custRepo.GetAllStoresWhithAddress();
+        }
+        public Store GetStoreWithAddressById(int p_Id)
+        {
+            return _custRepo.GetStoreWithAddressById(p_Id);
         }
 
 

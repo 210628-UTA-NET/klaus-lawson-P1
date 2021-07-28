@@ -1,0 +1,56 @@
+﻿@model IEnumerable<SAWebUI.Models.ProductVM>
+
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="display-4">Product List</h2>
+        </div>
+        <div class="col-6 text-right">
+            <a type="button" class="btn btn-primary " asp-action="createProduct" style="margin-bottom:10px"> Add new Product</a>
+        </div>
+    </div>
+
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-striped table-hover">
+            <thead class="text-center">
+                <tr>
+                    <th scope="col">Product Id</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Unit Price</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Quantity Available</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody class="text-center">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Id)</td>
+                        <td>@Html.DisplayFor(modelItem => item.ProductName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.ProductUnitPrice)</td>
+                        <td>@Html.DisplayFor(modelItem => item.ProductDescription)</td>
+                        <td>@Html.DisplayFor(modelItem => item.ProductAvailableQty)</td>
+                        <td>
+                            @*
+                                <a asp-controller="Management" asp-action="DeleteProduct" asp-route-p_productId="@item.Id" class="btn btn-primary">Delete</a>*@
+                        @Html.ActionLink("Edit", "EditProduct", "Management", new { p_productId = item.Id }, new { @style = "color:white;", @class = "btn btn-success mx-1" })
+                        @Html.ActionLink("Delete", "DeleteProduct", "Management", new { p_productId = item.Id }, new { @style = "color:white;", @class = "btn btn-danger mx-1" })
+
+
+                    </td>
+                </tr>
+            }
+
+
+
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <h3 class="display-4">There is No Product at this moment</h3>
+    }
+</div>

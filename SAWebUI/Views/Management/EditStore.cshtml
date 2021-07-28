@@ -1,0 +1,50 @@
+﻿@model SAWebUI.Models.StoreVM;
+
+<div class="g-3" style="margin:15%; margin-top:5%;">
+    <h1 class="display-4 border-bottom">Edit Store</h1>
+    <form class="row g-3" asp-action="EditStore">
+        <input asp-for="Id" hidden />
+        <input asp-for="StoreAddressId" hidden />
+        <input asp-for="addressVM.Id" hidden/>
+        <div class="col-md-6">
+            <label asp-for="StoreName" class="form-label">Store Name</label>
+            <input asp-for="StoreName" type="text" class="form-control">
+            <span asp-validation-for="StoreName" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label asp-for="StorePhone" class="form-label">Store Phone</label>
+            <input asp-for="StorePhone" type="text" class="form-control">
+            <span asp-validation-for="StorePhone" class="text-danger"></span>
+        </div>
+        <div class="col-12">
+            <label asp-for="@Model.addressVM.Street" class="form-label">Store Address</label>
+            <input asp-for="@Model.addressVM.Street" type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+            <span asp-validation-for="addressVM.Street" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label asp-for="addressVM.City" class="form-label">City</label>
+            <input asp-for="addressVM.City" type="text" class="form-control" id="inputCity">
+            <span asp-validation-for="addressVM.City" class="text-danger"></span>
+        </div>
+        <div class="col-md-4">
+            <label asp-for="addressVM.State" class="form-label">State</label>
+            <select asp-for="addressVM.State" asp-items="ViewBag.States" id="inputState" class="form-select">
+                <option selected>Choose...</option>
+            </select>
+            <span asp-validation-for="addressVM.State" class="text-danger"></span>
+        </div>
+        <div class="col-md-2">
+            <label asp-for="addressVM.Zip" class="form-label">Zip</label>
+            <input asp-for="addressVM.Zip" type="text" class="form-control" id="inputZip">
+            <span asp-validation-for="addressVM.Zip" class="text-danger"></span>
+        </div>
+        <div class="col-lg-5">
+            <button type="submit" class="btn btn-success  col align-content-lg-start">Edit</button>
+        </div>
+        <div class="col-lg-5">
+            <button asp-action="StoreManagement" class="btn btn-secondary col align-content-lg-end">Back</button>
+        </div>
+    </form>
+</div>
+
+

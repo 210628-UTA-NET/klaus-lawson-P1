@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using SAWebUI.Helpers;
 using Microsoft.AspNetCore.Http;
+using System.Security.Claims;
 
 namespace SAWebUI.Controllers
 {
@@ -42,7 +43,7 @@ namespace SAWebUI.Controllers
 
 
 
-        public ActionResult AddToCart(int p_id)
+        public IActionResult AddToCart(int p_id)
         {
             ProductVM p = new ProductVM(_storeBL.GetProductById(p_id));
             return View(p);
@@ -50,7 +51,7 @@ namespace SAWebUI.Controllers
         List<Cart> li = new List<Cart>();
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AddToCart(ProductVM pi, string qty, int p_id)
+        public IActionResult AddToCart(ProductVM pi, string qty, int p_id)
         {
 
             ProductVM p = new ProductVM(_storeBL.GetProductById(p_id));
@@ -91,7 +92,7 @@ namespace SAWebUI.Controllers
             return RedirectToAction("Shopping");
         }
 
-        public ActionResult Checkout()
+        public IActionResult Checkout()
         {
             List<Cart> l = SessionHelper.GetObjectFromJson<List<Cart>>(HttpContext.Session, "cart");
             TempData.Keep();
@@ -101,7 +102,7 @@ namespace SAWebUI.Controllers
         OrderVM orderVM;
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Checkout(int? i)
+        public IActionResult Checkout(int? i)
         {
             List<Cart> li = SessionHelper.GetObjectFromJson<List<Cart>>(HttpContext.Session, "cart");
             orderVM = new OrderVM();
@@ -124,7 +125,6 @@ namespace SAWebUI.Controllers
                 };
                 _storeBL.AddLineItem(lineItem);
             }
-            TempData.Remove("total");
             SessionHelper.SetObjectAsJson(HttpContext.Session, "Total", 0);
             SessionHelper.SetObjectAsJson(HttpContext.Session, "cart", null);
             TempData["msg"] = "Transaction has been completed";
@@ -132,8 +132,7 @@ namespace SAWebUI.Controllers
             return RedirectToAction("Shopping");
         }
 
-        [HttpPost]
-        public ActionResult Remove(int? id)
+        public IActionResult Remove(int? id)
         {
             li = SessionHelper.GetObjectFromJson<List<Cart>>(HttpContext.Session, "cart");
             Cart c = li.Where(x => x.Productid == id).SingleOrDefault();
@@ -144,11 +143,54 @@ namespace SAWebUI.Controllers
             {
                 h += item.Bill;
             }
-            TempData.Remove("total");
-            TempData["total"] = h;
             SessionHelper.SetObjectAsJson(HttpContext.Session, "Total", h);
-            //TempData.Keep();
-            return RedirectToAction("Checkout");
+            SessionHelper.SetObjectAsJson(HttpContext.Session, "cart", li);
+            return RedirectToAction(nameof(Checkout));
+        }
+
+
+
+        //Order History
+        public IActionResult MyOrders( string p_sortBy)
+        {
+            int myId = (int)(SessionHelper.GetObjectFromJson<int>(HttpContext.Session, "Id"));
+            var myOrders = _storeBL.GetOrdersByCustomerId(myId)
+                .Select(Order => new OrderVM(Order))
+                .ToList().AsQueryable();
+            ViewBag.SortDate = string.IsNullOrEmpty(p_sortBy) ? "OrderDate desc" : "";
+            ViewBag.SortCost = string.IsNullOrEmpty(p_sortBy) ? "OrderTotalPrice desc" : "OrderTotalPrice";
+
+            switch (p_sortBy)
+            {
+                case "OrderDate desc":
+                    myOrders = myOrders.OrderByDescending(x => x.OrderDate);
+                    break;
+                case "OrderTotalPrice desc":
+                    myOrders = myOrders.OrderByDescending(x => x.OrderTotalPrice);
+                    break;
+                case "OrderTotalPrice":
+                    myOrders = myOrders.OrderByDescending(x => x.OrderTotalPrice);
+                    break;
+                default:
+                    myOrders = myOrders.OrderBy(x => x.OrderTotalPrice);
+                    break;
+            }
+            return View(
+                myOrders
+                );
+        }
+        public IActionResult ViewMyOrder(int p_orderId)
+        {
+            OrderVM orderVM = new OrderVM(_storeBL.GetOrderById(p_orderId));
+            List<LineItemVM> liVM = new List<LineItemVM>() ;
+            List < LineItem > listLI = _storeBL.GetLineItemsByOrderId(p_orderId);
+            foreach(LineItem i in listLI)
+            {
+                liVM.Add(new LineItemVM(i));
+            }
+            //SessionHelper.SetObjectAsJson(HttpContext.Session, "lineItem", liVM);
+            TempData["LineItem"] = liVM;
+            return View(orderVM);
         }
     }
 }

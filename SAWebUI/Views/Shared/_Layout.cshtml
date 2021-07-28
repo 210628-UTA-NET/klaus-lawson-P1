@@ -43,36 +43,37 @@
                         </li>
                         @if (User.Identity.IsAuthenticated)
                         {
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle"
-                                   id="navbarScrollingDropdown" 
-                                   role="button" 
-                                   data-bs-toggle="dropdown" 
-                                   aria-expanded="false"
-                                   asp-area="" asp-controller="Management" asp-action="ManagementIndex">
-                                   Management
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                                    <li><a class="dropdown-item" asp-area="" asp-controller="Management" asp-action="CustomerManagement">Customer Management</a></li>
-                                    <li><a class="dropdown-item" asp-area="" asp-controller="Management" asp-action="StoreManagement">Store Manegement</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" asp-area="" asp-controller="Management" asp-action="InventoryManagement">Inventory Management</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="OurStore" asp-action="Shopping">Shopping</a>
-                            </li>
-                        }
-                        else
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark btn-outline-success" asp-area="" asp-controller="Home" asp-action="Login">Login</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark btn-outline-success" asp-area="" asp-controller="Management" asp-action="CreateCustomer">Register</a>
-                            </li>
-                        }
-                    </ul>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" asp-area="" asp-controller="Management" asp-action="">
+                                        Management
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                        <li><a class="dropdown-item" asp-area="" asp-controller="Management" asp-action="CustomerManagement">Customer Management</a></li>
+                                        <li><a class="dropdown-item" asp-area="" asp-controller="Management" asp-action="StoreManagement">Store Manegement</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item" asp-area="" asp-controller="Management" asp-action="ProductManagement">Inventory Management</a></li>
+                                    </ul>
+                                </li>
+                             }
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="OurStore" asp-action="Shopping">Shopping</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="OurStore" asp-action="MyOrders">My Orders</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark btn-outline-success" asp-area="" asp-controller="Home" asp-action="Login">Login</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark btn-outline-success" asp-area="" asp-controller="Home" asp-action="Register">Register</a>
+                                </li>
+                            }
+                        </ul>
                     <!-- Left links -->
                 </div>
                 <!-- Collapsible wrapper -->
@@ -107,7 +108,7 @@
                                 </li>
 
                                 <li>
-                                    <a class="nav-link text-dark btn-outline-success" asp-area="" asp-controller="Management" asp-action="CreateCustomer">Register</a>
+                                    <a class="nav-link text-dark btn-outline-success" asp-area="" asp-controller="Home" asp-action="Register">Register</a>
                                 </li>
                             }
                         </ul>

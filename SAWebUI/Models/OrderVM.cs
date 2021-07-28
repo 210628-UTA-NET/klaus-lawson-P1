@@ -1,6 +1,7 @@
 ﻿using System;
 using SAModels;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
 
 namespace SAWebUI.Models
 {
@@ -16,13 +17,20 @@ namespace SAWebUI.Models
             OrderStatus = p_order.OrderStatus;
             StoreId = p_order.StoreId;
             CustomerId = p_order.CustomerId;
+            OrderStore = p_order.Store;
         }
+        [Key]
         public int Id { get; set; }
+        [DisplayName("Location")]
         public string Location { get; set; }
+        [DisplayName("Total Price")]
         public double OrderTotalPrice { get; set; }
+        [DisplayName("Order date")]
         public DateTime OrderDate { get; set; }
+        [DisplayName("Status")]
         public string OrderStatus { get; set; }
         public int StoreId { get; set; }
+        public Store OrderStore { get; set; }
         public int CustomerId { get; set; }
 
         public Order ConvertToOrder()

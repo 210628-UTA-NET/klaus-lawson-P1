@@ -3,55 +3,63 @@
 <div class="g-3" style="margin:15%; margin-top:5%">
     <h1 class="display-4">Create Customer page</h1>
     <form class="row g-3" asp-action="CreateCustomer">
-        <div class="col-md-6">
-            <label asp-for="CustomerFirstName" class="form-label">First Name</label>
+        <div class="col-md-4">
+            <label asp-for="CustomerFirstName" class="form-label"></label>
             <input asp-for="CustomerFirstName" type="text" class="form-control">
             <span asp-validation-for="CustomerFirstName" class="text-danger"></span>
         </div>
-        <div class="col-md-6">
-            <label asp-for="CustomerLastName" class="form-label">Last Name</label>
+        <div class="col-md-4">
+            <label asp-for="CustomerLastName" class="form-label"></label>
             <input asp-for="CustomerLastName" type="text" class="form-control">
             <span asp-validation-for="CustomerLastName" class="text-danger"></span>
         </div>
+        <div class="col-md-4">
+            <label asp-for="CustomerRole" class="form-label"></label>
+            <select asp-for="CustomerRole" class="form-select">
+                <option selected>User</option>
+                <option selected>Admin</option>
+            </select>
+            <span asp-validation-for="CustomerRole" class="text-danger"></span>
+        </div>
         <div class="col-12">
-            <label asp-for="addressVM.Street" class="form-label">Address</label>
+            <label asp-for="addressVM.Street" class="form-label"></label>
             <input asp-for="addressVM.Street" type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
             <span asp-validation-for="addressVM.Street" class="text-danger"></span>
         </div>
         <div class="col-md-6">
-            <label asp-for="addressVM.City" class="form-label">City</label>
+            <label asp-for="addressVM.City" class="form-label"></label>
             <input asp-for="addressVM.City" type="text" class="form-control" id="inputCity">
             <span asp-validation-for="addressVM.City" class="text-danger"></span>
         </div>
         <div class="col-md-4">
-            <label asp-for="addressVM.State" class="form-label">State</label>
+            <label asp-for="addressVM.State" class="form-label"></label>
             <select asp-for="addressVM.State"  asp-items="ViewBag.States" id="inputState" class="form-select">
                 <option selected>Choose...</option>
             </select>
             <span asp-validation-for="addressVM.State" class="text-danger"></span>
         </div>
         <div class="col-md-2">
-            <label asp-for="addressVM.Zip" class="form-label">Zip</label>
+            <label asp-for="addressVM.Zip" class="form-label"></label>
             <input asp-for="addressVM.Zip" type="text" class="form-control" id="inputZip">
             <span asp-validation-for="addressVM.Zip" class="text-danger"></span>
         </div>
         <div class="col-md-6">
-            <label asp-for="CustomerEmail" class="form-label">Email</label>
+            <label asp-for="CustomerEmail" class="form-label"></label>
             <input asp-for="CustomerEmail" type="email" class="form-control">
             <span asp-validation-for="CustomerEmail" class="text-danger"></span>
         </div>
         <div class="col-md-6">
-            <label asp-for="CustomerPhone" class="form-label">Phone</label>
+            <label asp-for="CustomerPhone" class="form-label"></label>
             <input asp-for="CustomerPhone" type="text" class="form-control">
             <span asp-validation-for="CustomerPhone" class="text-danger"></span>
         </div>
         <div class="col-md-6">
-            <label asp-for="CustomerPassword" class="form-label">Password</label>
+            <label asp-for="CustomerPassword" class="form-label"></label>
             <input asp-for="CustomerPassword" type="password" class="form-control">
             <span asp-validation-for="CustomerPassword" class="text-danger"></span>
         </div>
         <div class="col-md-6">
-            <label asp-for="CustomerConfirmPassword" class="form-label">Confirm Password</label>
+            <label asp-for="CustomerConfirmPassword" class="form-label"></label>
             <input asp-for="CustomerConfirmPassword" type="password" class="form-control">
 
         </div>

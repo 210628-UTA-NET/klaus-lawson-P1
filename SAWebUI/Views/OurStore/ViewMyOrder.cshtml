@@ -1,0 +1,56 @@
+﻿@model SAWebUI.Models.OrderVM;
+
+<div class="g-3" style="margin:15%; margin-top:5%">
+    <h1 class="display-4">Detail of order @Model.Id</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <label asp-for="Location" class="form-label"></label>
+        </div>
+        <div class="col-md-6">
+            <input asp-for="Location" disabled type="text" class="form-control">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <label asp-for="OrderTotalPrice" class="form-label"></label>
+        </div>
+        <div class="col-md-6">
+            <input asp-for="OrderTotalPrice" disabled type="text" class="form-control">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <label asp-for="OrderDate" class="form-label"></label>
+        </div>
+        <div class="col-md-6">
+            <input asp-for="OrderDate" disabled type="text" class="form-control">
+        </div>
+    </div>
+    <h4>List of Line Item</h4>
+    <div class="row">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Unit Price</th>
+                    <th scope="col">Quantity bought</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var i in @TempData["LineItem"] as List<LineItemVM>)
+                {
+                    <tr>
+                        <td>@i.ProductVM.ProductName</td>                   
+                        <td>$@i.ProductVM.ProductUnitPrice</td>
+                        <td>@i.QuantityToBuy</td>
+                    </tr>
+                }
+            </tbody>
+        </table>        
+    </div>
+    <div class="row">
+       <div class="col-lg-4">
+            <a asp-action="MyOrders" class="btn btn-secondary col align-content-lg-end">Back</a>
+       </div>
+    </div>
+    </div>

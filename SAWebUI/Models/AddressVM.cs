@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using SAModels;
+using System.ComponentModel;
 
 namespace SAWebUI.Models
 {
@@ -25,22 +26,28 @@ namespace SAWebUI.Models
         
         public int Id { get; set; }
         [Required]
+        [DisplayName("Street")]
         public string Street { get; set; }
         [Required]
+        [DisplayName("City")]
         public string City { get; set; }
         [Required]
+        [DisplayName("State")]
         public string State { get; set; }
+        [DefaultValue("USA")]
         public string Country { get; set; }
-        [Required]
-        public string Zip { get; set; }
+        public int Zip { get; set; }
         public Address ConvertToAddress()
         {
             return new Address()
             {
+                Id = this.Id,
                 Street = this.Street,
                 City = this.City,
                 State = this.State,
                 Country = this.Country,
+                Zip = this.Zip,
+                
             };
         }
     }

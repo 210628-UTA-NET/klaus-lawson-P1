@@ -1,0 +1,42 @@
+﻿@model SAWebUI.Models.StoreVM;
+
+<div class="g-3" style="margin:15%; margin-top:5%;">
+    <h1 class="display-4 border-bottom">Delete Store</h1>
+    <form class="row g-3" asp-action="DeleteStorePost">
+        <input asp-for="Id" hidden />
+        <input asp-for="StoreAddressId" hidden />
+        <input asp-for="addressVM.Id" hidden />
+        <div class="col-md-6">
+            <label asp-for="StoreName" class="form-label">Store Name</label>
+            <input asp-for="StoreName" disabled type="text" class="form-control">
+        </div>
+        <div class="col-md-6">
+            <label asp-for="StorePhone" class="form-label">Store Phone</label>
+            <input asp-for="StorePhone" disabled type="text" class="form-control">
+        </div>
+        <div class="col-12">
+            <label asp-for="addressVM.Street" class="form-label">Store Address</label>
+            <input asp-for="addressVM.Street" disabled type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+        </div>
+        <div class="col-md-6">
+            <label asp-for="addressVM.City" class="form-label">City</label>
+            <input asp-for="addressVM.City" disabled type="text" class="form-control" id="inputCity">
+        </div>
+        <div class="col-md-4">
+            <label asp-for="addressVM.State" class="form-label">State</label>
+            <select asp-for="addressVM.State" asp-items="ViewBag.States" id="inputState" class="form-select">
+                <option selected>Choose...</option>
+            </select>
+        </div>
+        <div class="col-md-2">
+            <label asp-for="addressVM.Zip" class="form-label">Zip</label>
+            <input asp-for="addressVM.Zip" disabled type="text" class="form-control" id="inputZip">
+        </div>
+        <div class="col-lg-5">
+            <button type="submit" class="btn btn-danger  col align-content-lg-start">Delete</button>
+        </div>
+        <div class="col-lg-5">
+            <button asp-action="StoreManagement" class="btn btn-secondary col align-content-lg-end">Back</button>
+        </div>
+    </form>
+</div>
