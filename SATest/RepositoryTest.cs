@@ -78,6 +78,24 @@ namespace SATest
         }
 
         [Fact]
+        public void UpdateStoreShouldChangePropertiesInDB()
+        {
+            using (var context = new SADBContext(_options))
+            {
+                //Arrange
+                IRepository repo = new Repository(context);
+                Store tryUpdateStore = repo.GetStoreById(1);
+
+                //Act
+                tryUpdateStore.StoreName = "Store B";
+                Store c = repo.UpdateStore(tryUpdateStore);
+
+                //Assert
+                Assert.NotNull(tryUpdateStore);
+                Assert.Equal("Store B", c.StoreName);
+            }
+        }
+        [Fact]
         public void AddCustomerShouldIncreaseCustomerList()
         {
             using (var context = new SADBContext(_options))
@@ -111,7 +129,22 @@ namespace SATest
                 Assert.Equal(3, count);
             }
         }
+        [Fact]
+        public void GetCustomerWithAddressShouldReturnStoreAddress()
+        {
+            using (var context = new SADBContext(_options))
+            {
+                //Arrange
+                IRepository repo = new Repository(context);
+                Address custAddress = new Address();
 
+                //Act
+                custAddress = repo.GetCustomerWithAddressById(1).CustomerAddress;
+
+                //Assert
+                Assert.NotNull(custAddress);
+            }
+        }
         [Fact]
         public void SearchCustomerByName()
         {
@@ -181,7 +214,40 @@ namespace SATest
                 Assert.Equal("Anoko", storeAddress.City);
             }
         }
+        [Fact]
+        public void DeleteCustomerShouldDelete()
+        {
 
+            using (var context = new SADBContext(_options))
+            {
+                //Arrange
+                IRepository repo = new Repository(context);
+                bool deleted = false;
+
+                //Act
+                deleted = repo.DeleteCustomerById(1);
+
+                //Assert
+                Assert.True(deleted);
+            }
+        }
+        [Fact]
+        public void DeleteStoreShouldDelete()
+        {
+
+            using (var context = new SADBContext(_options))
+            {
+                //Arrange
+                IRepository repo = new Repository(context);
+                bool deleted = false;
+
+                //Act
+                deleted = repo.DeleteStoreById(1);
+
+                //Assert
+                Assert.Equal(true, deleted);
+            }
+        }
         private void Seed()
         {
             using (var context = new SADBContext(_options))

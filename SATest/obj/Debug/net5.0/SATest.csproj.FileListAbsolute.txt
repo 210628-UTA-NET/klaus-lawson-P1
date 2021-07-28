@@ -1,10 +1,10 @@
 C:\Users\klaus\Documents\Revature\SAP1\SATest\bin\Debug\net5.0\CoverletSourceRootsMapping
-C:\Users\klaus\Documents\Revature\SAP1\SATest\bin\Debug\net5.0\testhost.dll
 C:\Users\klaus\Documents\Revature\SAP1\SATest\bin\Debug\net5.0\testhost.exe
-C:\Users\klaus\Documents\Revature\SAP1\SATest\bin\Debug\net5.0\Microsoft.TestPlatform.PlatformAbstractions.dll
+C:\Users\klaus\Documents\Revature\SAP1\SATest\bin\Debug\net5.0\testhost.dll
 C:\Users\klaus\Documents\Revature\SAP1\SATest\bin\Debug\net5.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
 C:\Users\klaus\Documents\Revature\SAP1\SATest\bin\Debug\net5.0\xunit.runner.reporters.netcoreapp10.dll
 C:\Users\klaus\Documents\Revature\SAP1\SATest\bin\Debug\net5.0\xunit.runner.utility.netcoreapp10.dll
+C:\Users\klaus\Documents\Revature\SAP1\SATest\bin\Debug\net5.0\Microsoft.TestPlatform.PlatformAbstractions.dll
 C:\Users\klaus\Documents\Revature\SAP1\SATest\bin\Debug\net5.0\SATest.deps.json
 C:\Users\klaus\Documents\Revature\SAP1\SATest\bin\Debug\net5.0\SATest.runtimeconfig.json
 C:\Users\klaus\Documents\Revature\SAP1\SATest\bin\Debug\net5.0\SATest.runtimeconfig.dev.json

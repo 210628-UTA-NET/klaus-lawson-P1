@@ -1,21 +1,3 @@
-C:\Users\klaus\Documents\Revature\SA P1\SADL\bin\Debug\net5.0\SAModels.dll
-C:\Users\klaus\Documents\Revature\SA P1\SADL\obj\Debug\net5.0\SADL.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\klaus\Documents\Revature\SA P1\SADL\obj\Debug\net5.0\SADL.AssemblyInfoInputs.cache
-C:\Users\klaus\Documents\Revature\SA P1\SADL\obj\Debug\net5.0\SADL.AssemblyInfo.cs
-C:\Users\klaus\Documents\Revature\SA P1\sadl\bin\Debug\net5.0\SADL.deps.json
-C:\Users\klaus\Documents\Revature\SA P1\sadl\bin\Debug\net5.0\SADL.runtimeconfig.json
-C:\Users\klaus\Documents\Revature\SA P1\sadl\bin\Debug\net5.0\SADL.runtimeconfig.dev.json
-C:\Users\klaus\Documents\Revature\SA P1\sadl\bin\Debug\net5.0\SADL.dll
-C:\Users\klaus\Documents\Revature\SA P1\sadl\bin\Debug\net5.0\ref\SADL.dll
-C:\Users\klaus\Documents\Revature\SA P1\sadl\bin\Debug\net5.0\SADL.pdb
-C:\Users\klaus\Documents\Revature\SA P1\sadl\bin\Debug\net5.0\SAModels.pdb
-C:\Users\klaus\Documents\Revature\SA P1\sadl\obj\Debug\net5.0\SADL.csproj.CoreCompileInputs.cache
-C:\Users\klaus\Documents\Revature\SA P1\sadl\obj\Debug\net5.0\SADL.csproj.CopyComplete
-C:\Users\klaus\Documents\Revature\SA P1\sadl\obj\Debug\net5.0\SADL.dll
-C:\Users\klaus\Documents\Revature\SA P1\sadl\obj\Debug\net5.0\ref\SADL.dll
-C:\Users\klaus\Documents\Revature\SA P1\sadl\obj\Debug\net5.0\SADL.pdb
-C:\Users\klaus\Documents\Revature\SA P1\sadl\obj\Debug\net5.0\SADL.genruntimeconfig.cache
-C:\Users\klaus\Documents\Revature\SA P1\SADL\obj\Debug\net5.0\SADL.csprojAssemblyReference.cache
 C:\Users\klaus\Documents\Revature\SAP1\SADL\bin\Debug\net5.0\SADL.deps.json
 C:\Users\klaus\Documents\Revature\SAP1\SADL\bin\Debug\net5.0\SADL.runtimeconfig.json
 C:\Users\klaus\Documents\Revature\SAP1\SADL\bin\Debug\net5.0\SADL.runtimeconfig.dev.json
@@ -24,6 +6,7 @@ C:\Users\klaus\Documents\Revature\SAP1\SADL\bin\Debug\net5.0\ref\SADL.dll
 C:\Users\klaus\Documents\Revature\SAP1\SADL\bin\Debug\net5.0\SADL.pdb
 C:\Users\klaus\Documents\Revature\SAP1\SADL\bin\Debug\net5.0\SAModels.dll
 C:\Users\klaus\Documents\Revature\SAP1\SADL\bin\Debug\net5.0\SAModels.pdb
+C:\Users\klaus\Documents\Revature\SAP1\SADL\obj\Debug\net5.0\SADL.csprojAssemblyReference.cache
 C:\Users\klaus\Documents\Revature\SAP1\SADL\obj\Debug\net5.0\SADL.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\klaus\Documents\Revature\SAP1\SADL\obj\Debug\net5.0\SADL.AssemblyInfoInputs.cache
 C:\Users\klaus\Documents\Revature\SAP1\SADL\obj\Debug\net5.0\SADL.AssemblyInfo.cs
@@ -33,4 +16,3 @@ C:\Users\klaus\Documents\Revature\SAP1\SADL\obj\Debug\net5.0\SADL.dll
 C:\Users\klaus\Documents\Revature\SAP1\SADL\obj\Debug\net5.0\ref\SADL.dll
 C:\Users\klaus\Documents\Revature\SAP1\SADL\obj\Debug\net5.0\SADL.pdb
 C:\Users\klaus\Documents\Revature\SAP1\SADL\obj\Debug\net5.0\SADL.genruntimeconfig.cache
-C:\Users\klaus\Documents\Revature\SAP1\SADL\obj\Debug\net5.0\SADL.csprojAssemblyReference.cache

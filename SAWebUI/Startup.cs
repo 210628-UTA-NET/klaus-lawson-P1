@@ -60,6 +60,7 @@ namespace SAWebUI
                     };
                 });
             services.AddSession();
+            services.AddLogging();
             services.AddDbContext<SADBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Reference2DB")));
             services.AddScoped<IRepository, Repository>();
             services.AddScoped<IStoreAppBL, StoreAppBL>();

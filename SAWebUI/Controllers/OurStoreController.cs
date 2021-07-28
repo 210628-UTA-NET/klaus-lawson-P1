@@ -56,12 +56,14 @@ namespace SAWebUI.Controllers
 
             ProductVM p = new ProductVM(_storeBL.GetProductById(p_id));
             TempData["StoreId"] = p.StoreId;
+            
             Cart c = new Cart();
             c.Productid = p.Id;
             c.Price = (double)p.ProductUnitPrice;
             c.Qty = Convert.ToInt32(qty);
             c.Bill = c.Price * c.Qty;
             c.Productname = p.ProductName;
+            
             if (SessionHelper.GetObjectFromJson<List<Cart>>(HttpContext.Session, "cart") == null)
             {
                 li.Add(c);
@@ -122,7 +124,11 @@ namespace SAWebUI.Controllers
                     ProductId = item.Productid,
                     OrderId = ordId,
                     QuantityToBuy = item.Qty
+
                 };
+                Product p =_storeBL.GetProductById(item.Productid);
+                p.ProductAvailableQty -= Convert.ToInt32(item.Qty);
+                _storeBL.UpdateProduct(p);
                 _storeBL.AddLineItem(lineItem);
             }
             SessionHelper.SetObjectAsJson(HttpContext.Session, "Total", 0);
