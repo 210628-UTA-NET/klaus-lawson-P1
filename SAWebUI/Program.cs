@@ -15,7 +15,7 @@ namespace SAWebUI
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
-            var configuration = new ConfigurationBuilder()
+            /*var configuration = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json")
                 .Build();
 
@@ -35,12 +35,12 @@ namespace SAWebUI
             finally
             {
                 Log.CloseAndFlush();
-            }
+            }*/
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-            .UseSerilog()
+            //.UseSerilog()
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();

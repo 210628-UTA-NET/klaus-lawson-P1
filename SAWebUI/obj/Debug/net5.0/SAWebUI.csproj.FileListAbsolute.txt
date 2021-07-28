@@ -896,8 +896,6 @@ C:\Users\klaus\Documents\Revature\SAP1\SAWebUI\obj\Debug\net5.0\Razor\Views\Mana
 C:\Users\klaus\Documents\Revature\SAP1\SAWebUI\obj\Debug\net5.0\Razor\Views\Management\StoreManagement.cshtml.g.cs
 C:\Users\klaus\Documents\Revature\SAP1\SAWebUI\obj\Debug\net5.0\Razor\Views\OurStore\Shopping.cshtml.g.cs
 C:\Users\klaus\Documents\Revature\SAP1\SAWebUI\obj\Debug\net5.0\Razor\Views\Management\CreateStore.cshtml.g.cs
-C:\Users\klaus\Documents\Revature\SAP1\SAWebUI\bin\Debug\net5.0\PagedList.dll
-C:\Users\klaus\Documents\Revature\SAP1\SAWebUI\bin\Debug\net5.0\PagedList.Mvc.dll
 C:\Users\klaus\Documents\Revature\SAP1\SAWebUI\obj\Debug\net5.0\Razor\Views\Management\CreateProduct.cshtml.g.cs
 C:\Users\klaus\Documents\Revature\SAP1\SAWebUI\obj\Debug\net5.0\Razor\Views\OurStore\AddToCart.cshtml.g.cs
 C:\Users\klaus\Documents\Revature\SAP1\SAWebUI\obj\Debug\net5.0\Razor\Views\OurStore\Checkout.cshtml.g.cs

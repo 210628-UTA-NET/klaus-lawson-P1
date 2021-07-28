@@ -309,10 +309,6 @@
               "target": "Package",
               "version": "[5.0.2, )"
             },
-            "PagedList.Mvc": {
-              "target": "Package",
-              "version": "[4.5.0, )"
-            },
             "Serilog.AspNetCore": {
               "target": "Package",
               "version": "[4.1.0, )"

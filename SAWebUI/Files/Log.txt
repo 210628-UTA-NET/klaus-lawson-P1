@@ -1,0 +1,56 @@
+07/27/2021 20:35:02Application Starting up
+07/27/2021 20:35:20Application Starting up
+07/27/2021 20:35:21User profile is available. Using '"C:\Users\klaus\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+07/27/2021 20:35:21Now listening on: "https://localhost:5001"
+07/27/2021 20:35:21Now listening on: "http://localhost:5000"
+07/27/2021 20:35:21Application started. Press Ctrl+C to shut down.
+07/27/2021 20:35:21Hosting environment: "Development"
+07/27/2021 20:35:21Content root path: "C:\Users\klaus\Documents\Revature\SAP1\SAWebUI"
+07/27/2021 20:35:22Request starting HTTP/2 GET https://localhost:5001/ - -
+07/27/2021 20:35:22Executing endpoint '"SAWebUI.Controllers.HomeController.Index (SAWebUI)"'
+07/27/2021 20:35:22Route matched with "{action = \"Index\", controller = \"Home\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "SAWebUI.Controllers.HomeController" ("SAWebUI").
+07/27/2021 20:35:22Executing ViewResult, running view "Index".
+07/27/2021 20:35:22Executed ViewResult - view "Index" executed in 144.0955ms.
+07/27/2021 20:35:22Executed action "SAWebUI.Controllers.HomeController.Index (SAWebUI)" in 320.6534ms
+07/27/2021 20:35:22Executed endpoint '"SAWebUI.Controllers.HomeController.Index (SAWebUI)"'
+07/27/2021 20:35:22Request finished HTTP/2 GET https://localhost:5001/ - - - 200 - text/html;+charset=utf-8 416.0980ms
+07/27/2021 20:35:32Request starting HTTP/2 GET https://localhost:5001/Home/Register - -
+07/27/2021 20:35:32Executing endpoint '"SAWebUI.Controllers.HomeController.Register (SAWebUI)"'
+07/27/2021 20:35:32Route matched with "{action = \"Register\", controller = \"Home\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Register()" on controller "SAWebUI.Controllers.HomeController" ("SAWebUI").
+07/27/2021 20:35:32Executing ViewResult, running view "Register".
+07/27/2021 20:35:32Executed ViewResult - view "Register" executed in 81.5707ms.
+07/27/2021 20:35:32Executed action "SAWebUI.Controllers.HomeController.Register (SAWebUI)" in 131.1043ms
+07/27/2021 20:35:32Executed endpoint '"SAWebUI.Controllers.HomeController.Register (SAWebUI)"'
+07/27/2021 20:35:32Request finished HTTP/2 GET https://localhost:5001/Home/Register - - - 200 - text/html;+charset=utf-8 135.0573ms
+07/27/2021 20:36:04Request starting HTTP/2 GET https://localhost:5001/ - -
+07/27/2021 20:36:04Executing endpoint '"SAWebUI.Controllers.HomeController.Index (SAWebUI)"'
+07/27/2021 20:36:04Route matched with "{action = \"Index\", controller = \"Home\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "SAWebUI.Controllers.HomeController" ("SAWebUI").
+07/27/2021 20:36:04Executing ViewResult, running view "Index".
+07/27/2021 20:36:04Executed ViewResult - view "Index" executed in 0.8228ms.
+07/27/2021 20:36:04Executed action "SAWebUI.Controllers.HomeController.Index (SAWebUI)" in 2.6467ms
+07/27/2021 20:36:04Executed endpoint '"SAWebUI.Controllers.HomeController.Index (SAWebUI)"'
+07/27/2021 20:36:04Request finished HTTP/2 GET https://localhost:5001/ - - - 200 - text/html;+charset=utf-8 5.5778ms
+07/27/2021 20:36:06Request starting HTTP/2 GET https://localhost:5001/login - -
+07/27/2021 20:36:06Executing endpoint '"SAWebUI.Controllers.HomeController.Login (SAWebUI)"'
+07/27/2021 20:36:06Route matched with "{action = \"Login\", controller = \"Home\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Login(System.String)" on controller "SAWebUI.Controllers.HomeController" ("SAWebUI").
+07/27/2021 20:36:06Executing ViewResult, running view "Login".
+07/27/2021 20:36:06Executed ViewResult - view "Login" executed in 12.4807ms.
+07/27/2021 20:36:06Executed action "SAWebUI.Controllers.HomeController.Login (SAWebUI)" in 19.5308ms
+07/27/2021 20:36:06Executed endpoint '"SAWebUI.Controllers.HomeController.Login (SAWebUI)"'
+07/27/2021 20:36:06Request finished HTTP/2 GET https://localhost:5001/login - - - 200 - text/html;+charset=utf-8 31.3338ms
+07/27/2021 21:48:40Application Starting up
+07/27/2021 21:48:41User profile is available. Using '"C:\Users\klaus\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+07/27/2021 21:48:42Now listening on: "https://localhost:5001"
+07/27/2021 21:48:42Now listening on: "http://localhost:5000"
+07/27/2021 21:48:42Application started. Press Ctrl+C to shut down.
+07/27/2021 21:48:42Hosting environment: "Development"
+07/27/2021 21:48:42Content root path: "C:\Users\klaus\Documents\Revature\SAP1\SAWebUI"
+07/27/2021 21:48:43Request starting HTTP/2 GET https://localhost:5001/ - -
+07/27/2021 21:48:43Executing endpoint '"SAWebUI.Controllers.HomeController.Index (SAWebUI)"'
+07/27/2021 21:48:43Route matched with "{action = \"Index\", controller = \"Home\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "SAWebUI.Controllers.HomeController" ("SAWebUI").
+07/27/2021 21:48:43Executing ViewResult, running view "Index".
+07/27/2021 21:48:43Executed ViewResult - view "Index" executed in 135.592ms.
+07/27/2021 21:48:43Executed action "SAWebUI.Controllers.HomeController.Index (SAWebUI)" in 290.6814ms
+07/27/2021 21:48:43Executed endpoint '"SAWebUI.Controllers.HomeController.Index (SAWebUI)"'
+07/27/2021 21:48:43Request finished HTTP/2 GET https://localhost:5001/ - - - 200 - text/html;+charset=utf-8 389.6771ms
+07/27/2021 21:49:03Application is shutting down...

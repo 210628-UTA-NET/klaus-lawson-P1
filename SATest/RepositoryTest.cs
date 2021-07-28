@@ -76,6 +76,112 @@ namespace SATest
                 Assert.Equal("Djecky", c.CustomerLastName);
             }
         }
+
+        [Fact]
+        public void AddCustomerShouldIncreaseCustomerList()
+        {
+            using (var context = new SADBContext(_options))
+            {
+                //Arrange
+                IRepository repo = new Repository(context);
+                int count;
+                //act
+                Customer addCustomer = repo.AddCustomer(new Customer()
+                {
+                    CustomerFirstName = "toto",
+                    CustomerLastName = "lawson",
+                    CustomerEmail = "toto@gmail.com",
+                    CustomerPhone = "6122298551",
+                    CustomerPassword = "12584",
+                    CustomerAddressId = 3,
+                    CustomerAddress = new Address()
+                    {
+                        Street = "2630 9th st",
+                        City = "Anoka",
+                        State = "Minnesota",
+                        Country = "us",
+                    },
+                });
+                count = repo.GetAllCustomers().Count;
+                
+
+
+                //Assert
+                Assert.NotNull(addCustomer);
+                Assert.Equal(3, count);
+            }
+        }
+
+        [Fact]
+        public void SearchCustomerByName()
+        {
+            using (var context = new SADBContext(_options))
+            {
+                //Arrange
+                IRepository repo = new Repository(context);
+                string trytoFindCustomerName = "klaus";
+
+                //Act
+                List<Customer> listFoundCustomer = repo.FindCustomerByName(trytoFindCustomerName);
+
+                //Assert
+                Assert.NotNull(listFoundCustomer);
+                Assert.Equal(1, listFoundCustomer.Count);
+            }
+        }
+
+        [Fact]
+        public void GetAllStoreShouldGetAllStore()
+        {
+            using (var context = new SADBContext(_options))
+            {
+                //Arrange
+                IRepository repo = new Repository(context);
+                List<Store> allStores;
+
+                //Act
+                allStores = repo.GetAllStores();
+
+                //Assert
+                Assert.NotNull(allStores);
+                Assert.Equal(2, allStores.Count);
+            }
+        }
+        [Fact]
+        public void FindStoreByIdShouldReturnStore()
+        {
+            using (var context = new SADBContext(_options))
+            {
+                //Arrange
+                IRepository repo = new Repository(context);
+                int trytoFindStoreId = 1;
+
+                //Act
+                Store foundStore = repo.GetStoreById(trytoFindStoreId);
+
+                //Assert
+                Assert.NotNull(foundStore);
+                Assert.Equal("Store A", foundStore.StoreName);
+            }
+        }
+        [Fact]
+        public void GetStoreWithAddressShouldReturnStoreAddress()
+        {
+            using (var context = new SADBContext(_options))
+            {
+                //Arrange
+                IRepository repo = new Repository(context);
+                Address storeAddress = new Address();
+
+                //Act
+                storeAddress = repo.GetStoreWithAddressById(1).StoreAddress;
+
+                //Assert
+                Assert.NotNull(storeAddress);
+                Assert.Equal("Anoko", storeAddress.City);
+            }
+        }
+
         private void Seed()
         {
             using (var context = new SADBContext(_options))
@@ -115,7 +221,33 @@ namespace SATest
                             State = "Minnesota",
                             Country = "us",
                         },
-                    }) ;
+                    });
+                context.Stores.AddRange(
+                    new Store()
+                    {
+                        StoreName = "Store A",
+                        StorePhone = "6122050000",
+                        StoreAddress = new Address()
+                        {
+                            Street = "2630 9th st",
+                            City = "Anoko",
+                            State = "Minnesota",
+                            Country = "us",
+                        },
+                    },
+                    new Store()
+                    {
+                        StoreName = "Store B",
+                        StorePhone = "6122050000",
+                        StoreAddress = new Address()
+                        {
+                            Street = "2630 9th st",
+                            City = "Anoko",
+                            State = "Minnesota",
+                            Country = "us",
+                        },
+                    });
+                
                 context.SaveChanges();
             }
            
