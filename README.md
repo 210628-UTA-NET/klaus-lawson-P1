@@ -8,7 +8,7 @@ Store management web app is a project assigned to associates which I have been p
   *	Replenish inventory,
   *	View and manage a store,
   *	Only the Administrator can assign the admin role to some one
-##Users can:
+## Users can:
   *	Create an account or login
   *	Search select Storefront to shop from
   *	View their orders history
